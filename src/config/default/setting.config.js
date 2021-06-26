@@ -11,11 +11,11 @@ const setting = {
   // 开发环境每次保存时是否输出为eslint编译警告
   lintOnSave: true,
   // 标题 （包括初次加载雪花屏的标题 页面的标题 浏览器的标题）
-  title: '网信网络取证系统',
+  title: 'vue-element-plus 管理系统',
   // 标题分隔符
   titleSeparator: ' - ',
   // 标题是否反转 如果为false:"page - title"，如果为true:"title - page"
-  titleReverse: false,  
+  titleReverse: false,
   // 开发环境端口号
   devPort: '9999',
   // token名称

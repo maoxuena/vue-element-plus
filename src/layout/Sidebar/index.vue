@@ -1,15 +1,15 @@
 <template>
   <div class="aside-container">
-    <div class="logo">{{ isCollapse ? '取证' : '网信网络取证系统' }}</div>
+    <div class="logo">{{ isCollapse ? 'VUE' : 'vue-element-plus 管理系统' }}</div>
     <div class="menu-container scrollbar">
-      <el-menu
-        :collapse="isCollapse"
-        router
-        unique-opened
-        :default-active="getActiveMenu()"
-      >
-        <template v-for="route in routes" :key="route.path">
-          <side-menu v-if="!route.hidden" :item="route" />
+      <el-menu :collapse="isCollapse"
+               router
+               unique-opened
+               :default-active="getActiveMenu()">
+        <template v-for="route in routes"
+                  :key="route.path">
+          <side-menu v-if="!route.hidden"
+                     :item="route" />
         </template>
       </el-menu>
     </div>
@@ -61,8 +61,8 @@ export default {
     color: #fff;
     white-space: nowrap;
   }
-  
-  .menu-container{
+
+  .menu-container {
     overflow-y: scroll;
     width: calc(100% + 5px);
     height: calc(100% - 65px);

@@ -1,40 +1,37 @@
 <template>
   <div class="login-page">
-    <h4 class="title">{{ title }}</h4>
-    <el-form
-      :model="loginForm"
-      :rules="rules"
-      ref="validateForm"
-      label-width="3em"
-      class="login-form"
-      hide-required-asterisk
-    >
-      <el-form-item prop="username" label="账号">
-        <el-input
-          v-model="loginForm.username"
-          prefix-icon="el-icon-user"
-          placeholder="请输入账号"
-        ></el-input>
-      </el-form-item>
-      <el-form-item prop="password" label="密码">
-        <el-input
-          :type="passwordType"
-          v-model="loginForm.password"
-          prefix-icon="el-icon-lock"
-          placeholder="请输入密码"
-        ></el-input>
-        <span class="show-pwd" @click="showPwd">
-          <svg-icon
-            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          />
-        </span>
-      </el-form-item>
-      <el-form-item class="login-form-button">
-        <el-button class="submit-button" type="primary" @click="submit"
-          >登录</el-button
-        >
-      </el-form-item>
-    </el-form>
+    <div class="login-container">
+      <h4 class="title">{{ title }}</h4>
+      <el-form :model="loginForm"
+               :rules="rules"
+               ref="validateForm"
+               label-width="3em"
+               class="login-form"
+               hide-required-asterisk>
+        <el-form-item prop="username"
+                      label="账号">
+          <el-input v-model="loginForm.username"
+                    prefix-icon="el-icon-user"
+                    placeholder="请输入账号"></el-input>
+        </el-form-item>
+        <el-form-item prop="password"
+                      label="密码">
+          <el-input :type="passwordType"
+                    v-model="loginForm.password"
+                    prefix-icon="el-icon-lock"
+                    placeholder="请输入密码"></el-input>
+          <span class="show-pwd"
+                @click="showPwd">
+            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+          </span>
+        </el-form-item>
+        <el-form-item class="login-form-button">
+          <el-button class="submit-button"
+                     type="primary"
+                     @click="submit">登录</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
@@ -126,27 +123,45 @@ export default {
 
 <style lang="scss" scoped>
 .login-page {
-  .title {
-    text-align: center;
-  }
+  background-image: url(../../assets/images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  position: relative;
 
-  .login-form {
-    width: 370px;
-    margin: 0 auto;
-    border: 1px solid #efefef;
-    border-radius: 10px;
-    padding: 35px;
-    
-    .show-pwd{
-      position: absolute;
-      right: 10px;
-      cursor: pointer;
-      color: #C0C4CC;
+  .login-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      line-height: 40px;
+      padding-bottom: 30px;
     }
 
-    .login-form-button {
-      .submit-button {
-        width: 100%;
+    .login-form {
+      width: 370px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+      padding: 50px 35px;
+
+      .show-pwd {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        color: #c0c4cc;
+      }
+
+      .login-form-button {
+        .submit-button {
+          width: 100%;
+        }
       }
     }
   }
