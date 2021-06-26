@@ -1,16 +1,11 @@
 <template>
   <div class="header-container flex-box">
     <div class="header-item header-left flex-box">
-      <i
-        class="icon"
-        :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-        @click="changeMenuState"
-      ></i>
+      <i class="icon"
+         :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
+         @click="changeMenuState"></i>
     </div>
     <div class="header-item header-right flex-box">
-      <div class="header-right-item flex-box">
-        <svg-icon icon-class="amap" />
-      </div>
       <div class="header-right-item flex-box">
         <i class="icon el-icon-search"></i>
       </div>
@@ -18,18 +13,19 @@
         <i class="icon el-icon-bell"></i>
       </div>
       <div class="header-right-item flex-box">
-        <el-dropdown trigger="click" class="dropdown flex-box">
+        <el-dropdown trigger="click"
+                     class="dropdown flex-box">
           <span class="el-dropdown-link">
-            <el-avatar :size="20" :src="circleUrl"></el-avatar>
+            <el-avatar :size="20"
+                       :src="circleUrl"></el-avatar>
             <span class="text">{{ username }}</span>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>个人中心</el-dropdown-item>
               <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item divided @click="logout"
-                >退出登录</el-dropdown-item
-              >
+              <el-dropdown-item divided
+                                @click="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -102,7 +98,7 @@ export default {
   }
 
   .header-right {
-    .header-right-item{
+    .header-right-item {
       height: 100%;
       align-items: center;
       padding-left: 10px;
@@ -112,18 +108,19 @@ export default {
 </style>
 
 <style lang="scss">
-.header-right-item{
-  .dropdown{
+.header-right-item {
+  .dropdown {
     cursor: pointer;
     height: 100%;
     align-items: center;
 
-    .el-dropdown-link{
+    .el-dropdown-link {
       cursor: pointer;
       display: inline-block;
       line-height: 20px;
+      height: 20px;
 
-      .text{
+      .text {
         display: inline-block;
         vertical-align: top;
         padding-left: 5px;

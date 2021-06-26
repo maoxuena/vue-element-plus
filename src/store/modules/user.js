@@ -73,6 +73,7 @@ const actions = {
     if (accessToken) {
       commit('setAccessToken', accessToken)
       const hour = new Date().getHours()
+      console.log(hour)
       const thisTime =
         hour < 8
           ? '早上好'
@@ -84,8 +85,8 @@ const actions = {
                 ? '下午好'
                 : '晚上好'
       ElNotification.success({
+        title: `${thisTime}！`,
         message: `欢迎登录${title}`,
-        description: `${thisTime}！`,
       })
     } else {
       ElMessageBox.alert(`登录接口异常，未正确返回${tokenName}...`)

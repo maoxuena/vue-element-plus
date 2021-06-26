@@ -11,7 +11,7 @@ import '@/permissions.js'
  */
 import SvgIcon from '@/components/SvgIcon'  // 引入自定义组件
 const requireAll = requireContext => requireContext.keys().map(requireContext)
-const req = require.context('./icons/svgs', false, /\.svg$/)
+const req = require.context('./assets/icons/svgs', false, /\.svg$/)
 requireAll(req)
 
 import { mockXHR } from '../mock'
