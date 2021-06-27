@@ -62,8 +62,8 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/preWarning',
-    redirect: '/preWarning/index',
+    path: '/charts',
+    redirect: '/charts/d3',
     meta: {
       title: '舆情预警',
       icon: 'el-icon-s-opportunity',
@@ -71,13 +71,22 @@ export const asyncRoutes = [
     component: BasicLayout,
     children: [
       {
-        path: 'index',
-        name: 'PreWarning',
+        path: 'd3',
+        name: 'D3',
         meta: {
-          title: '舆情预警',
+          title: 'D3',
           icon: 'el-icon-s-opportunity',
         },
-        component: () => import(/* webpackChunkName: "preWarning" */ '@/views/PreWarning')
+        component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/D3')
+      },
+      {
+        path: 'echarts',
+        name: 'ECharts',
+        meta: {
+          title: 'ECharts',
+          icon: 'el-icon-s-opportunity',
+        },
+        component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts')
       }
     ]
   },

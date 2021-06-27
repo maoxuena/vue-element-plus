@@ -1,12 +1,12 @@
 <template>
-  <div class="prewarning">
-    舆情预警
+  <div class="d3-page">
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PreWarning'
+  name: 'D3'
 }
 </script>
 

@@ -4,7 +4,7 @@
  * @param cFormat
  * @returns {string|null}
  */
-export function parseTime(time, cFormat) {
+export function parseTime (time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
@@ -48,7 +48,7 @@ export function parseTime(time, cFormat) {
  * @param option
  * @returns {string}
  */
-export function formatTime(time, option) {
+export function formatTime (time, option) {
   if (('' + time).length === 10) {
     time = parseInt(time) * 1000
   } else {
@@ -91,19 +91,19 @@ export function formatTime(time, option) {
  * @param url
  * @returns {{}|any}
  */
-export function paramObj(url) {
+export function paramObj (url) {
   const search = url.split('?')[1]
   if (!search) {
     return {}
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, ' ') +
-      '"}'
+    decodeURIComponent(search)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"')
+      .replace(/\+/g, ' ') +
+    '"}'
   )
 }
 
@@ -112,7 +112,7 @@ export function paramObj(url) {
  * @param data
  * @returns {*}
  */
-export function translateDataToTree(data) {
+export function translateDataToTree (data) {
   const parent = data.filter(
     (value) => value.parentId === 'undefined' || value.parentId == null
   )
@@ -142,7 +142,7 @@ export function translateDataToTree(data) {
  * @param data
  * @returns {[]}
  */
-export function translateTreeToData(data) {
+export function translateTreeToData (data) {
   const result = []
   data.forEach((item) => {
     const loop = (data) => {
@@ -168,7 +168,7 @@ export function translateTreeToData(data) {
  * @param time
  * @returns {string}
  */
-export function tenBitTimestamp(time) {
+export function tenBitTimestamp (time) {
   const date = new Date(time * 1000)
   const y = date.getFullYear()
   let m = date.getMonth() + 1
@@ -189,7 +189,7 @@ export function tenBitTimestamp(time) {
  * @param time
  * @returns {string}
  */
-export function thirteenBitTimestamp(time) {
+export function thirteenBitTimestamp (time) {
   const date = new Date(time / 1)
   const y = date.getFullYear()
   let m = date.getMonth() + 1
@@ -210,7 +210,7 @@ export function thirteenBitTimestamp(time) {
  * @param length
  * @returns {string}
  */
-export function uuid(length = 32) {
+export function uuid (length = 32) {
   const num = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
   let str = ''
   for (let i = 0; i < length; i++) {
@@ -225,7 +225,7 @@ export function uuid(length = 32) {
  * @param n
  * @returns {number}
  */
-export function random(m, n) {
+export function random (m, n) {
   return Math.floor(Math.random() * (m - n) + n)
 }
 
@@ -252,3 +252,24 @@ export const off = (function () {
     }
   }
 })()
+
+/**
+ * @description 数组求和
+ * @param arr
+ * @returns {number}
+ */
+export function totalize (arr) {
+  return arr.reduce(function (prev, curr) { // prev, curr, index, arr
+    return prev + curr;
+  });
+}
+
+/**
+ * @description 生成一个长度为m，每一项都是n的数组
+ * @param m
+ * @param n
+ * @returns {Array}
+ */
+export function creatAry (m, n) {
+  return m ? creatAry(m - 1, n).concat(n) : [];
+}

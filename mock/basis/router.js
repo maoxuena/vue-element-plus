@@ -27,22 +27,32 @@ const menuList = {
       ]
     },
     {
-      path: '/preWarning',
-      redirect: '/preWarning/index',
+      path: '/charts',
+      redirect: '/charts/d3',
       meta: {
-        title: '舆情预警',
+        title: '图表',
         icon: 'el-icon-s-opportunity',
       },
       component: 'BasicLayout',
+      alwaysShow: true,
       children: [
         {
-          path: 'index',
-          name: 'PreWarning',
+          path: 'd3',
+          name: 'D3',
           meta: {
-            title: '舆情预警',
+            title: 'D3',
             icon: 'el-icon-s-opportunity',
           },
-          component: 'PreWarning'
+          component: 'Charts/D3'
+        },
+        {
+          path: 'echarts',
+          name: 'ECharts',
+          meta: {
+            title: 'ECharts',
+            icon: 'el-icon-s-opportunity',
+          },
+          component: 'Charts/ECharts'
         }
       ]
     },
@@ -62,7 +72,7 @@ const menuList = {
             title: '取证管理',
             icon: 'el-icon-s-order',
           },
-          component:'ForensicsManagement'
+          component: 'ForensicsManagement'
         }
       ]
     },
@@ -166,8 +176,8 @@ export default [
    * 基础 - 路由
    **/
   {
-    url:'/menu/navigate',
-    type:'get',
+    url: '/menu/navigate',
+    type: 'get',
     response: () => {
       return menuList
     }

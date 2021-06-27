@@ -3,9 +3,13 @@
 </template>
 
 <script>
-
+import { provide } from 'vue'
+import * as echarts from 'echarts'
 export default {
-  name: 'App'
+  name: 'App',
+  setup () {
+    provide('ec', echarts)
+  }
 }
 </script>
 

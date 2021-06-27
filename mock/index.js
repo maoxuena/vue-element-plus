@@ -3,10 +3,12 @@ import { paramObj } from '../src/utils'
 
 import router from './basis/router'
 import user from './basis/user'
+import echarts from './charts/echarts'
 
 const mocks = [
   ...router,
-  ...user
+  ...user,
+  ...echarts
 ]
 
 // for front mock
@@ -66,4 +68,3 @@ export default mocks.map(route => {
 })
 
 
- 
