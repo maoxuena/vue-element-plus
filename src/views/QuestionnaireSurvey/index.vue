@@ -1,12 +1,21 @@
 <template>
-  <div>问卷调查</div>
+  <div class="questionnaire-survey-container">
+    <add></add>
+  </div>
 </template>
 
 <script>
+import Add from './components/Add'
 export default {
-  name: 'QuestionnaireSurvey'
+  name: 'QuestionnaireSurvey',
+  components: {
+    Add
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.questionnaire-survey-container{
+  height: 100%;
+}
 </style>
