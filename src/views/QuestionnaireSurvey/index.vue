@@ -1,16 +1,10 @@
 <template>
-  <div class="questionnaire-survey-container">
-    <add></add>
-  </div>
+  <div class="questionnaire-survey-container">问卷调查</div>
 </template>
 
 <script>
-import Add from './components/Add'
 export default {
   name: 'QuestionnaireSurvey',
-  components: {
-    Add
-  }
 }
 </script>
 
