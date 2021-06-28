@@ -78,42 +78,51 @@ const menuList = {
       ]
     },
     {
-      path: '/forensics',
-      redirect: '/forensics/index',
+      path: '/questionnaireSurvey',
+      redirect: '/questionnaireSurvey/list',
       meta: {
-        title: '一件取证',
-        icon: 'el-icon-s-platform',
+        title: '问卷调查',
+        icon: 'solution',
       },
       component: 'BasicLayout',
       children: [
         {
-          path: 'index',
-          name: 'Forensics',
+          path: 'list',
+          name: 'QuestionnaireSurvey',
           meta: {
-            title: '一件取证',
-            icon: 'el-icon-s-platform',
+            title: '问卷调查',
+            icon: 'solution',
           },
-          component: 'Forensics'
+          component: 'QuestionnaireSurvey'
         }
       ]
     },
     {
-      path: '/systemManagement',
-      redirect: '/systemManagement/index',
+      path: '/assembly',
+      redirect: '/assembly/icon',
       meta: {
-        title: '系统管理',
-        icon: 'el-icon-s-tools',
+        title: '组件',
+        icon: 'assembly',
       },
       component: 'BasicLayout',
       children: [
         {
-          path: 'index',
-          name: 'SystemManagement',
+          path: 'icon',
+          name: 'Icon',
           meta: {
-            title: '系统管理',
-            icon: 'el-icon-s-tools',
+            title: '图标',
+            icon: 'icon',
           },
-          component: 'SystemManagement'
+          component: 'Assembly/Icon'
+        },
+        {
+          path: 'table',
+          name: 'Table',
+          meta: {
+            title: '表格',
+            icon: 'table',
+          },
+          component: 'Assembly/Table'
         }
       ]
     },
@@ -122,7 +131,7 @@ const menuList = {
       redirect: '/usingHelp/index',
       meta: {
         title: '使用帮助',
-        icon: 'el-icon-s-operation',
+        icon: 'help',
       },
       component: 'BasicLayout',
       children: [
@@ -131,7 +140,7 @@ const menuList = {
           name: 'UsingHelp',
           meta: {
             title: '使用帮助',
-            icon: 'el-icon-s-help',
+            icon: 'help',
           },
           component: 'UsingHelp'
         }
@@ -142,7 +151,7 @@ const menuList = {
       redirect: '/test/test1',
       meta: {
         title: '测试页面',
-        icon: 'el-icon-s-operation',
+        icon: 'test-task',
       },
       component: 'BasicLayout',
       alwaysShow: true,

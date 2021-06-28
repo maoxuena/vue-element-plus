@@ -1,12 +1,10 @@
 <template>
-  <div>
-    系统管理
-  </div>
+  <div>问卷调查</div>
 </template>
 
 <script>
 export default {
-  name: 'SystemManagement'
+  name: 'QuestionnaireSurvey'
 }
 </script>
 

@@ -112,42 +112,51 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/forensics',
-    redirect: '/forensics/index',
+    path: '/questionnaireSurvey',
+    redirect: '/questionnaireSurvey/list',
     meta: {
-      title: '一件取证',
-      icon: 'el-icon-s-platform',
+      title: '问卷调查',
+      icon: 'solution',
     },
     component: BasicLayout,
     children: [
       {
-        path: 'index',
-        name: 'Forensics',
+        path: 'list',
+        name: 'QuestionnaireSurvey',
         meta: {
-          title: '一件取证',
-          icon: 'el-icon-s-platform',
+          title: '问卷调查',
+          icon: 'solution',
         },
-        component: () => import(/* webpackChunkName: "forensics" */ '@/views/Forensics')
+        component: () => import(/* webpackChunkName: "questionnaireSurvey" */ '@/views/QuestionnaireSurvey')
       }
     ]
   },
   {
-    path: '/systemManagement',
-    redirect: '/systemManagement/index',
+    path: '/assembly',
+    redirect: '/assembly/icon',
     meta: {
-      title: '系统管理',
-      icon: 'el-icon-s-tools',
+      title: '组件',
+      icon: 'assembly',
     },
     component: BasicLayout,
     children: [
       {
-        path: 'index',
-        name: 'SystemManagement',
+        path: 'icon',
+        name: 'Icon',
         meta: {
-          title: '系统管理',
-          icon: 'el-icon-s-tools',
+          title: '图标',
+          icon: 'icon',
         },
-        component: () => import(/* webpackChunkName: "systemManagement" */ '@/views/SystemManagement')
+        component: () => import(/* webpackChunkName: "assembly" */ '@/views/Assembly/Icon')
+      },      
+      {
+        path: 'table',
+        name: 'Table',
+        meta: {
+          title: '表格',
+          icon: 'table',
+        },
+        component: () => import(/* webpackChunkName: "assembly" */ '@/views/Assembly/Table')
       }
     ]
   },
@@ -156,7 +165,7 @@ export const asyncRoutes = [
     redirect: '/usingHelp/index',
     meta: {
       title: '使用帮助',
-      icon: 'el-icon-s-help',
+      icon: 'help',
     },
     component: BasicLayout,
     children: [
@@ -165,7 +174,7 @@ export const asyncRoutes = [
         name: 'UsingHelp',
         meta: {
           title: '使用帮助',
-          icon: 'el-icon-s-help',
+          icon: 'help',
         },
         component: () => import(/* webpackChunkName: "usingHelp" */ '@/views/UsingHelp')
       }
@@ -176,7 +185,7 @@ export const asyncRoutes = [
     redirect: '/test/test1',
     meta: {
       title: '测试页面',
-      icon: 'el-icon-s-operation',
+      icon: 'test-task',
     },
     component: BasicLayout,
     alwaysShow: true,
