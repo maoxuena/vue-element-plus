@@ -44,7 +44,7 @@ export const asyncRoutes = [
     redirect: '/home',
     meta: {
       title: '首页',
-      icon: 'el-icon-s-home',
+      icon: 'home',
       affix: true,
     },
     component: BasicLayout,
@@ -54,7 +54,7 @@ export const asyncRoutes = [
         name: 'Home',
         meta: {
           title: '首页',
-          icon: 'el-icon-s-home',
+          icon: 'home',
           affix: true,
         },
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home')
@@ -65,8 +65,8 @@ export const asyncRoutes = [
     path: '/charts',
     redirect: '/charts/d3',
     meta: {
-      title: '舆情预警',
-      icon: 'el-icon-s-opportunity',
+      title: '图表',
+      icon: 'chart',
     },
     component: BasicLayout,
     children: [
@@ -75,7 +75,7 @@ export const asyncRoutes = [
         name: 'D3',
         meta: {
           title: 'D3',
-          icon: 'el-icon-s-opportunity',
+          icon: 'd3',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/D3')
       },
@@ -84,29 +84,30 @@ export const asyncRoutes = [
         name: 'ECharts',
         meta: {
           title: 'ECharts',
-          icon: 'el-icon-s-opportunity',
+          icon: 'ECharts',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts')
       }
     ]
   },
   {
-    path: '/forensicsManagement',
-    redirect: '/forensicsManagement/index',
+    path: '/map',
+    redirect: '/map/amap',
     meta: {
-      title: '取证管理',
-      icon: 'el-icon-s-order',
+      title: '地图',
+      icon: 'map',
     },
     component: BasicLayout,
+    alwaysShow: true,
     children: [
       {
-        path: 'index',
-        name: 'ForensicsManagement',
+        path: 'amap',
+        name: 'AMap',
         meta: {
-          title: '取证管理',
+          title: '高德地图',
           icon: 'el-icon-s-order',
         },
-        component: () => import(/* webpackChunkName: "forensicsManagement" */ '@/views/ForensicsManagement')
+        component: () => import(/* webpackChunkName: "map" */ '@/views/Map/AMap')
       }
     ]
   },

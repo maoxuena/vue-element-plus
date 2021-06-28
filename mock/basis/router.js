@@ -9,7 +9,7 @@ const menuList = {
       redirect: '/home',
       meta: {
         title: '首页',
-        icon: 'el-icon-s-home',
+        icon: 'home',
         affix: true,
       },
       component: 'BasicLayout',
@@ -19,7 +19,7 @@ const menuList = {
           name: 'Home',
           meta: {
             title: '首页',
-            icon: 'el-icon-s-home',
+            icon: 'home',
             affix: true,
           },
           component: 'Home'
@@ -31,7 +31,7 @@ const menuList = {
       redirect: '/charts/d3',
       meta: {
         title: '图表',
-        icon: 'el-icon-s-opportunity',
+        icon: 'chart',
       },
       component: 'BasicLayout',
       alwaysShow: true,
@@ -41,7 +41,7 @@ const menuList = {
           name: 'D3',
           meta: {
             title: 'D3',
-            icon: 'el-icon-s-opportunity',
+            icon: 'd3',
           },
           component: 'Charts/D3'
         },
@@ -50,29 +50,30 @@ const menuList = {
           name: 'ECharts',
           meta: {
             title: 'ECharts',
-            icon: 'el-icon-s-opportunity',
+            icon: 'ECharts',
           },
           component: 'Charts/ECharts'
         }
       ]
     },
     {
-      path: '/forensicsManagement',
-      redirect: '/forensicsManagement/index',
+      path: '/map',
+      redirect: '/map/amap',
       meta: {
-        title: '取证管理',
-        icon: 'el-icon-s-order',
+        title: '地图',
+        icon: 'map',
       },
       component: 'BasicLayout',
+      alwaysShow: true,
       children: [
         {
-          path: 'index',
-          name: 'ForensicsManagement',
+          path: 'amap',
+          name: 'AMap',
           meta: {
-            title: '取证管理',
-            icon: 'el-icon-s-order',
+            title: '高德地图',
+            icon: 'amap',
           },
-          component: 'ForensicsManagement'
+          component: 'Map/AMap'
         }
       ]
     },

@@ -1,7 +1,7 @@
 <template>
   <el-menu-item :index="routeChildren.path">
-    <i :class="routeChildren.meta.icon"></i>
-    <template #title>{{routeChildren.meta?.title}}</template>
+    <svg-icon :icon-class="routeChildren.meta.icon" />
+    <template #title>{{ routeChildren.meta?.title }}</template>
   </el-menu-item>
 </template>
 

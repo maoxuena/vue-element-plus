@@ -1,9 +1,11 @@
 <template>
   <div class="header-container flex-box">
     <div class="header-item header-left flex-box">
-      <i class="icon"
-         :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-         @click="changeMenuState"></i>
+      <i
+        class="icon"
+        :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
+        @click="changeMenuState"
+      ></i>
     </div>
     <div class="header-item header-right flex-box">
       <div class="header-right-item flex-box">
@@ -13,19 +15,18 @@
         <i class="icon el-icon-bell"></i>
       </div>
       <div class="header-right-item flex-box">
-        <el-dropdown trigger="click"
-                     class="dropdown flex-box">
+        <el-dropdown trigger="click" class="dropdown flex-box">
           <span class="el-dropdown-link">
-            <el-avatar :size="20"
-                       :src="circleUrl"></el-avatar>
+            <el-avatar :size="20" :src="circleUrl"></el-avatar>
             <span class="text">{{ username }}</span>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>个人中心</el-dropdown-item>
               <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item divided
-                                @click="logout">退出登录</el-dropdown-item>
+              <el-dropdown-item divided @click="logout"
+                >退出登录</el-dropdown-item
+              >
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -83,7 +84,6 @@ export default {
   height: 100%;
   justify-content: space-between;
   align-items: stretch;
-  border-bottom: 1px solid #eaeaea;
 
   .header-item {
     align-items: center;
