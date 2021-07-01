@@ -91,22 +91,22 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/forensicsManagement',
-    redirect: '/forensicsManagement/index',
+    path: '/svg',
+    redirect: '/svg/index',
     meta: {
-      title: '取证管理',
+      title: 'SVG',
       icon: 'el-icon-s-order',
     },
     component: BasicLayout,
     children: [
       {
         path: 'index',
-        name: 'ForensicsManagement',
+        name: 'SVG',
         meta: {
-          title: '取证管理',
+          title: 'SVG',
           icon: 'el-icon-s-order',
         },
-        component: () => import(/* webpackChunkName: "forensicsManagement" */ '@/views/ForensicsManagement')
+        component: () => import(/* webpackChunkName: "svg" */ '@/views/SVG')
       }
     ]
   },

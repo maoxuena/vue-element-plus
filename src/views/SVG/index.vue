@@ -1,12 +1,12 @@
 <template>
-  <div class="forensics-management">
-    取证管理
+  <div class="svg">
+    SVG
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ForensicsManagement'
+  name: 'SVG'
 }
 </script>
 

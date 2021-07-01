@@ -57,22 +57,22 @@ const menuList = {
       ]
     },
     {
-      path: '/forensicsManagement',
-      redirect: '/forensicsManagement/index',
+      path: '/svg',
+      redirect: '/svg/index',
       meta: {
-        title: '取证管理',
+        title: 'SVG',
         icon: 'el-icon-s-order',
       },
       component: 'BasicLayout',
       children: [
         {
           path: 'index',
-          name: 'ForensicsManagement',
+          name: 'SVG',
           meta: {
-            title: '取证管理',
+            title: 'SVG',
             icon: 'el-icon-s-order',
           },
-          component: 'ForensicsManagement'
+          component: 'SVG'
         }
       ]
     },
