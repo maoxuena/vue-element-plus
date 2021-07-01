@@ -44,7 +44,7 @@ export const asyncRoutes = [
     redirect: '/home',
     meta: {
       title: '首页',
-      icon: 'el-icon-s-home',
+      icon: 'home',
       affix: true,
     },
     component: BasicLayout,
@@ -54,7 +54,7 @@ export const asyncRoutes = [
         name: 'Home',
         meta: {
           title: '首页',
-          icon: 'el-icon-s-home',
+          icon: 'home',
           affix: true,
         },
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home')
@@ -65,8 +65,8 @@ export const asyncRoutes = [
     path: '/charts',
     redirect: '/charts/d3',
     meta: {
-      title: '舆情预警',
-      icon: 'el-icon-s-opportunity',
+      title: '图表',
+      icon: 'chart',
     },
     component: BasicLayout,
     children: [
@@ -75,7 +75,7 @@ export const asyncRoutes = [
         name: 'D3',
         meta: {
           title: 'D3',
-          icon: 'el-icon-s-opportunity',
+          icon: 'd3',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/D3')
       },
@@ -84,9 +84,50 @@ export const asyncRoutes = [
         name: 'ECharts',
         meta: {
           title: 'ECharts',
-          icon: 'el-icon-s-opportunity',
+          icon: 'ECharts',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts')
+      }
+    ]
+  },
+  {
+    path: '/map',
+    redirect: '/map/amap',
+    meta: {
+      title: '地图',
+      icon: 'map',
+    },
+    component: BasicLayout,
+    alwaysShow: true,
+    children: [
+      {
+        path: 'amap',
+        name: 'AMap',
+        meta: {
+          title: '高德地图',
+          icon: 'amap',
+        },
+        component: () => import(/* webpackChunkName: "map" */ '@/views/Map/AMap')
+      }
+    ]
+  },
+  {
+    path: '/questionnaireSurvey',
+    redirect: '/questionnaireSurvey/list',
+    meta: {
+      title: '问卷调查',
+      icon: 'solution',
+    },
+    component: BasicLayout,
+    children: [
+      {
+        path: 'list',
+        name: 'QuestionnaireSurvey',
+        meta: {
+          title: '问卷调查',
+          icon: 'solution',
+        },
+        component: () => import(/* webpackChunkName: "questionnaireSurvey" */ '@/views/QuestionnaireSurvey')
       }
     ]
   },
@@ -95,7 +136,7 @@ export const asyncRoutes = [
     redirect: '/svg/index',
     meta: {
       title: 'SVG',
-      icon: 'el-icon-s-order',
+      icon: 'svg',
     },
     component: BasicLayout,
     children: [
@@ -104,49 +145,38 @@ export const asyncRoutes = [
         name: 'SVG',
         meta: {
           title: 'SVG',
-          icon: 'el-icon-s-order',
+          icon: 'svg',
         },
         component: () => import(/* webpackChunkName: "svg" */ '@/views/SVG')
       }
     ]
   },
   {
-    path: '/forensics',
-    redirect: '/forensics/index',
+    path: '/assembly',
+    redirect: '/assembly/icon',
     meta: {
-      title: '一件取证',
-      icon: 'el-icon-s-platform',
+      title: '组件',
+      icon: 'assembly',
     },
     component: BasicLayout,
     children: [
       {
-        path: 'index',
-        name: 'Forensics',
+        path: 'icon',
+        name: 'Icon',
         meta: {
-          title: '一件取证',
-          icon: 'el-icon-s-platform',
+          title: '图标',
+          icon: 'icon',
         },
-        component: () => import(/* webpackChunkName: "forensics" */ '@/views/Forensics')
-      }
-    ]
-  },
-  {
-    path: '/systemManagement',
-    redirect: '/systemManagement/index',
-    meta: {
-      title: '系统管理',
-      icon: 'el-icon-s-tools',
-    },
-    component: BasicLayout,
-    children: [
+        component: () => import(/* webpackChunkName: "assembly" */ '@/views/Assembly/Icon')
+      },
       {
-        path: 'index',
-        name: 'SystemManagement',
+        path: 'table',
+        name: 'Table',
         meta: {
-          title: '系统管理',
-          icon: 'el-icon-s-tools',
+          title: '表格',
+          icon: 'table',
         },
-        component: () => import(/* webpackChunkName: "systemManagement" */ '@/views/SystemManagement')
+        component: () => import(/* webpackChunkName: "assembly" */ '@/views/Assembly/Table')
       }
     ]
   },
@@ -155,7 +185,7 @@ export const asyncRoutes = [
     redirect: '/usingHelp/index',
     meta: {
       title: '使用帮助',
-      icon: 'el-icon-s-help',
+      icon: 'help',
     },
     component: BasicLayout,
     children: [
@@ -164,7 +194,7 @@ export const asyncRoutes = [
         name: 'UsingHelp',
         meta: {
           title: '使用帮助',
-          icon: 'el-icon-s-help',
+          icon: 'help',
         },
         component: () => import(/* webpackChunkName: "usingHelp" */ '@/views/UsingHelp')
       }
@@ -175,7 +205,7 @@ export const asyncRoutes = [
     redirect: '/test/test1',
     meta: {
       title: '测试页面',
-      icon: 'el-icon-s-operation',
+      icon: 'test-task',
     },
     component: BasicLayout,
     alwaysShow: true,

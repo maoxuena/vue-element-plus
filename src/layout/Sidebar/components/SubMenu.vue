@@ -1,8 +1,8 @@
 <template>
   <el-submenu :index="item.path">
     <template #title>
-      <i :class="item.meta.icon"></i>
-      <span>{{item.meta.title}}</span>
+      <svg-icon class="icon" :icon-class="item.meta.icon" />
+      <span>{{ item.meta.title }}</span>
     </template>
     <slot></slot>
   </el-submenu>

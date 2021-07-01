@@ -14,7 +14,7 @@
           @changeMenuState="changeMenuState"
         ></layout-header>
       </el-header>
-      <el-main class="page-main-body">
+      <el-main class="page-main-body scrollbar">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -72,6 +72,7 @@ export default {
     .page-main-header {
       background-color: #fff;
       height: 64px !important;
+      border-bottom: 1px solid #eaeaea;
     }
   }
 }

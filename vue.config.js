@@ -50,10 +50,13 @@ module.exports = {
   configureWebpack () {
     return {
       resolve: {
-        alias: {
+        alias: { // 别名配置
           '@': resolve('src'),
           '*': resolve(''),
         },
+      },
+      externals: { // 高德地图配置
+        'AMap': 'AMap'
       }
     }
   },

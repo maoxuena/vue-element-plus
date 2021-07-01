@@ -3,10 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import installElementPlus from './plugins/element'
-/**
- * 解决警告：Added non-passive event listener to a scroll-blocking 'wheel' event.
- */
-import 'default-passive-events'
 import '@/styles/index.scss'
 import '@/permissions.js'
 

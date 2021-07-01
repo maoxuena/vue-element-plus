@@ -16,6 +16,11 @@
   &.is-active {
     background: rgba(255, 255, 255, 0.1);
   }
+  
+  .svg-icon{
+    vertical-align: middle !important;
+    margin-right: 5px !important;
+  }
 }
 
 .login-form {
@@ -39,5 +44,9 @@
 .el-card {
   .el-card__header {
     padding: 10px 15px;
+  }
+  
+  .el-card__body{
+    position: relative;
   }
 }

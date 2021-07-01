@@ -1,15 +1,17 @@
 <template>
   <div class="aside-container">
-    <div class="logo">{{ isCollapse ? 'VUE' : 'vue-element-plus 管理系统' }}</div>
+    <div class="logo">
+      {{ isCollapse ? 'VUE' : 'vue-element-plus 管理系统' }}
+    </div>
     <div class="menu-container scrollbar">
-      <el-menu :collapse="isCollapse"
-               router
-               unique-opened
-               :default-active="getActiveMenu()">
-        <template v-for="route in routes"
-                  :key="route.path">
-          <side-menu v-if="!route.hidden"
-                     :item="route" />
+      <el-menu
+        :collapse="isCollapse"
+        router
+        unique-opened
+        :default-active="getActiveMenu()"
+      >
+        <template v-for="route in routes" :key="route.path">
+          <side-menu v-if="!route.hidden" :item="route" />
         </template>
       </el-menu>
     </div>

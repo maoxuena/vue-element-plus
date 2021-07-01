@@ -9,7 +9,7 @@ const menuList = {
       redirect: '/home',
       meta: {
         title: '首页',
-        icon: 'el-icon-s-home',
+        icon: 'home',
         affix: true,
       },
       component: 'BasicLayout',
@@ -19,7 +19,7 @@ const menuList = {
           name: 'Home',
           meta: {
             title: '首页',
-            icon: 'el-icon-s-home',
+            icon: 'home',
             affix: true,
           },
           component: 'Home'
@@ -31,7 +31,7 @@ const menuList = {
       redirect: '/charts/d3',
       meta: {
         title: '图表',
-        icon: 'el-icon-s-opportunity',
+        icon: 'chart',
       },
       component: 'BasicLayout',
       alwaysShow: true,
@@ -41,7 +41,7 @@ const menuList = {
           name: 'D3',
           meta: {
             title: 'D3',
-            icon: 'el-icon-s-opportunity',
+            icon: 'd3',
           },
           component: 'Charts/D3'
         },
@@ -50,9 +50,50 @@ const menuList = {
           name: 'ECharts',
           meta: {
             title: 'ECharts',
-            icon: 'el-icon-s-opportunity',
+            icon: 'ECharts',
           },
           component: 'Charts/ECharts'
+        }
+      ]
+    },
+    {
+      path: '/map',
+      redirect: '/map/amap',
+      meta: {
+        title: '地图',
+        icon: 'map',
+      },
+      component: 'BasicLayout',
+      alwaysShow: true,
+      children: [
+        {
+          path: 'amap',
+          name: 'AMap',
+          meta: {
+            title: '高德地图',
+            icon: 'amap',
+          },
+          component: 'Map/AMap'
+        }
+      ]
+    },
+    {
+      path: '/questionnaireSurvey',
+      redirect: '/questionnaireSurvey/list',
+      meta: {
+        title: '问卷调查',
+        icon: 'solution',
+      },
+      component: 'BasicLayout',
+      children: [
+        {
+          path: 'list',
+          name: 'QuestionnaireSurvey',
+          meta: {
+            title: '问卷调查',
+            icon: 'solution',
+          },
+          component: 'QuestionnaireSurvey'
         }
       ]
     },
@@ -61,7 +102,7 @@ const menuList = {
       redirect: '/svg/index',
       meta: {
         title: 'SVG',
-        icon: 'el-icon-s-order',
+        icon: 'svg',
       },
       component: 'BasicLayout',
       children: [
@@ -70,49 +111,38 @@ const menuList = {
           name: 'SVG',
           meta: {
             title: 'SVG',
-            icon: 'el-icon-s-order',
+            icon: 'svg',
           },
           component: 'SVG'
         }
       ]
     },
     {
-      path: '/forensics',
-      redirect: '/forensics/index',
+      path: '/assembly',
+      redirect: '/assembly/icon',
       meta: {
-        title: '一件取证',
-        icon: 'el-icon-s-platform',
+        title: '组件',
+        icon: 'assembly',
       },
       component: 'BasicLayout',
       children: [
         {
-          path: 'index',
-          name: 'Forensics',
+          path: 'icon',
+          name: 'Icon',
           meta: {
-            title: '一件取证',
-            icon: 'el-icon-s-platform',
+            title: '图标',
+            icon: 'icon',
           },
-          component: 'Forensics'
-        }
-      ]
-    },
-    {
-      path: '/systemManagement',
-      redirect: '/systemManagement/index',
-      meta: {
-        title: '系统管理',
-        icon: 'el-icon-s-tools',
-      },
-      component: 'BasicLayout',
-      children: [
+          component: 'Assembly/Icon'
+        },
         {
-          path: 'index',
-          name: 'SystemManagement',
+          path: 'table',
+          name: 'Table',
           meta: {
-            title: '系统管理',
-            icon: 'el-icon-s-tools',
+            title: '表格',
+            icon: 'table',
           },
-          component: 'SystemManagement'
+          component: 'Assembly/Table'
         }
       ]
     },
@@ -121,7 +151,7 @@ const menuList = {
       redirect: '/usingHelp/index',
       meta: {
         title: '使用帮助',
-        icon: 'el-icon-s-operation',
+        icon: 'help',
       },
       component: 'BasicLayout',
       children: [
@@ -130,7 +160,7 @@ const menuList = {
           name: 'UsingHelp',
           meta: {
             title: '使用帮助',
-            icon: 'el-icon-s-help',
+            icon: 'help',
           },
           component: 'UsingHelp'
         }
@@ -141,7 +171,7 @@ const menuList = {
       redirect: '/test/test1',
       meta: {
         title: '测试页面',
-        icon: 'el-icon-s-operation',
+        icon: 'test-task',
       },
       component: 'BasicLayout',
       alwaysShow: true,
