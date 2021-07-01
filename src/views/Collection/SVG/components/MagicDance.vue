@@ -1,12 +1,12 @@
 <template>
-  <div class="svg">
-    SVG
+  <div class="magic-dance">
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SVG'
+  name: 'MagicDance'
 }
 </script>
 

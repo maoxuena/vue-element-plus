@@ -132,22 +132,31 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/svg',
-    redirect: '/svg/index',
+    path: '/collection',
+    redirect: '/collection/svg',
     meta: {
-      title: 'SVG',
-      icon: 'svg',
+      title: '收藏',
+      icon: 'collection',
     },
-    component: BasicLayout,
+    component: 'BasicLayout',
     children: [
       {
-        path: 'index',
+        path: 'svg',
         name: 'SVG',
         meta: {
           title: 'SVG',
           icon: 'svg',
         },
-        component: () => import(/* webpackChunkName: "svg" */ '@/views/SVG')
+        component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/SVG')
+      },
+      {
+        path: 'css',
+        name: 'CSS',
+        meta: {
+          title: 'CSS',
+          icon: 'css3',
+        },
+        component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/CSS')
       }
     ]
   },

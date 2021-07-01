@@ -98,22 +98,31 @@ const menuList = {
       ]
     },
     {
-      path: '/svg',
-      redirect: '/svg/index',
+      path: '/collection',
+      redirect: '/collection/svg',
       meta: {
-        title: 'SVG',
-        icon: 'svg',
+        title: '收藏',
+        icon: 'collection',
       },
       component: 'BasicLayout',
       children: [
         {
-          path: 'index',
+          path: 'svg',
           name: 'SVG',
           meta: {
             title: 'SVG',
             icon: 'svg',
           },
-          component: 'SVG'
+          component: 'Collection/SVG'
+        },
+        {
+          path: 'css',
+          name: 'CSS',
+          meta: {
+            title: 'CSS',
+            icon: 'css3',
+          },
+          component: 'Collection/CSS'
         }
       ]
     },
