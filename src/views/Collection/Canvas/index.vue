@@ -5,10 +5,8 @@
       <el-tab-pane v-for="item in list"
                    :key="item.value"
                    :label="item.name">
-        <div class="tab-body">
-          <smile-cat v-if="item.value === 0" />
-          <little-crab v-if="item.value === 1" />
-          <bicycle v-if="item.value === 2" />
+        <div class="tab-body scrollbar">
+          <word-pad v-if="item.value === 0" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -16,29 +14,17 @@
 </template>
 
 <script>
-import SmileCat from './components/SmileCat.vue'
-import LittleCrab from './components/LittleCrab.vue'
-import Bicycle from './components/Bicycle.vue'
+import WordPad from './components/WordPad.vue'
 export default {
   name: 'CSS',
   components: {
-    SmileCat,
-    LittleCrab,
-    Bicycle
+    WordPad
   },
   setup () {
     const list = [
       {
-        name: '笑脸猫',
+        name: '写字板',
         value: 0
-      },
-      {
-        name: '小螃蟹',
-        value: 1
-      },
-      {
-        name: '自行车',
-        value: 2
       }
     ]
     return {
@@ -54,6 +40,7 @@ export default {
 
   .tab-body {
     height: calc(100vh - 110px);
+    overflow-y: scroll;
   }
 }
 </style>

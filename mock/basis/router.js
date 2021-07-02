@@ -116,6 +116,15 @@ const menuList = {
           component: 'Collection/SVG'
         },
         {
+          path: 'canvas',
+          name: 'Canvas',
+          meta: {
+            title: 'Canvas',
+            icon: 'canvas',
+          },
+          component: 'Collection/Canvas'
+        },
+        {
           path: 'css',
           name: 'CSS',
           meta: {

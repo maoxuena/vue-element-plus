@@ -150,6 +150,15 @@ export const asyncRoutes = [
         component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/SVG')
       },
       {
+        path: 'canvas',
+        name: 'Canvas',
+        meta: {
+          title: 'Canvas',
+          icon: 'canvas',
+        },
+        component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/Canvas')
+      },
+      {
         path: 'css',
         name: 'CSS',
         meta: {
