@@ -50,3 +50,9 @@
     position: relative;
   }
 }
+
+
+input[type=text], input[type=date], select{
+  height: 40px;
+  padding: 0 35px 0 15px;
+}
