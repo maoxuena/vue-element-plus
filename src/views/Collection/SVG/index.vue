@@ -6,6 +6,7 @@
           <loading v-if="item.value === 0" />
           <animation-related v-if="item.value === 1" />
           <path-playback v-if="item.value === 2" />
+          <within-polygon v-if="item.value === 3" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -16,12 +17,14 @@
 import Loading from './components/Loading.vue'
 import AnimationRelated from './components/AnimationRelated.vue'
 import PathPlayback from './components/PathPlayback.vue'
+import WithinPolygon from './components/WithinPolygon.vue'
 export default {
   name: 'SVG',
   components: {
     Loading,
     AnimationRelated,
-    PathPlayback
+    PathPlayback,
+    WithinPolygon
   },
   setup () {
     const list = [
@@ -36,6 +39,10 @@ export default {
       {
         name: '路径回放',
         value: 2
+      },
+      {
+        name: '点是否在多边形内',
+        value: 3
       },
     ]
     return {

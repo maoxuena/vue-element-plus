@@ -195,9 +195,9 @@ export default {
     const pathActive = () => {
       console.log('time', time)
       trackStyle.value.strokeDashoffset = trackLen() + 'px' // 不可见长度
-      trackStyle.value.transition = ".1s";
+      trackStyle.value.transition = ".1s"
       setTimeout(() => {
-        trackStyle.value.transition = time / 1000 + 's';
+        trackStyle.value.transition = time / 1000 + 's'
         trackStyle.value.strokeDashoffset = '0px' // 不可见长度
       }, 300)
     }
