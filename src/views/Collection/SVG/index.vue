@@ -7,6 +7,7 @@
           <animation-related v-if="item.value === 1" />
           <path-playback v-if="item.value === 2" />
           <within-polygon v-if="item.value === 3" />
+          <draw-polygon v-if="item.value === 4" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -18,13 +19,15 @@ import Loading from './components/Loading.vue'
 import AnimationRelated from './components/AnimationRelated.vue'
 import PathPlayback from './components/PathPlayback.vue'
 import WithinPolygon from './components/WithinPolygon.vue'
+import DrawPolygon from './components/DrawPolygon.vue'
 export default {
   name: 'SVG',
   components: {
     Loading,
     AnimationRelated,
     PathPlayback,
-    WithinPolygon
+    WithinPolygon,
+    DrawPolygon
   },
   setup () {
     const list = [
@@ -43,6 +46,10 @@ export default {
       {
         name: '点是否在多边形内',
         value: 3
+      },
+      {
+        name: '动态绘制多边形',
+        value: 4
       },
     ]
     return {
