@@ -81,12 +81,34 @@ export const asyncRoutes = [
       },
       {
         path: 'echarts',
+        redirect:'/charts/echarts/line',
         name: 'ECharts',
         meta: {
           title: 'ECharts',
           icon: 'ECharts',
         },
-        component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts')
+        component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts'),
+        alwaysShow: true,
+        children: [
+          {
+            path: 'echarts',
+            name: 'Line',
+            meta: {
+              title: 'Line',
+              icon: 'ECharts',
+            },
+            component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts/Line')
+          },
+          {
+            path: 'bar',
+            name: 'Bar',
+            meta: {
+              title: 'Bar',
+              icon: 'ECharts',
+            },
+            component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts/Bar')
+          }
+        ]
       }
     ]
   },

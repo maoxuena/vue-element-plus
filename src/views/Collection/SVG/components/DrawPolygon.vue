@@ -1,4 +1,5 @@
 <template>
+  <!-- 未完成，功能上有bug -->
   <div class="draw-polygon-container">
     <svg
       id="draw-polygon-svg"
@@ -6,32 +7,39 @@
       width="600"
       height="600"
     ></svg>
+    <div class="path-text">
+      <el-button @click="createPath">生成路径</el-button>
+      <el-button @click="clearPath">清空</el-button>
+      <p>{{pathText}}</p>
+      </div>
   </div>
 </template>
 
 <script>
-import { nextTick, onMounted } from '@vue/runtime-core';
+import { nextTick, onMounted, ref } from 'vue';
 export default {
   name: 'DrawPolygon',
   setup () {
-    var path = [];
-    var k = 0;
-    var g = 0;
+    const pathText = ref('')
+    let path = [];
+    let k = 0;
+    let g = 0;
     let circles = document.getElementsByTagName('circle');
     let svg
     let hasPush = false
     let nvert = 0
 
     const createCircle = (ev) => {
-      var ce = ev || event;
-      var cx = ce.offsetX;
-      var cy = ce.offsetY;
+      console.log(ev)
+      let ce = ev || event;
+      let cx = ce.offsetX;
+      let cy = ce.offsetY;
       let flag = ev.target.id.split('_')[0];
       if (flag != 'c') {
         drawCircle(cx, cy, k);
         nvert = path.length;
         hasPush = false;
-        for (var i = 0, j = nvert - 1; i < nvert; j = i++) {
+        for (let i = 0, j = nvert - 1; i < nvert; j = i++) {
           if (
             path[i][0] > cx != path[j][0] > cx &&
             path[i][1] > cy != path[j][1] > cy
@@ -64,7 +72,7 @@ export default {
       }
     }
     const drawPolygon = (path) => {
-      var p = document.getElementById('p');
+      let p = document.getElementById('p');
       p.setAttribute('points', path.join(' '));
     }
     const drawCircle = (px, py, i) => {
@@ -91,9 +99,9 @@ export default {
 
     const drag = (c) => {
       svg.onmousemove = function (ev) {
-        var e = ev || event;
-        var x = e.offsetX || e.layerX;
-        var y = e.offsetY || e.layerY;
+        let e = ev || event;
+        let x = e.offsetX || e.layerX;
+        let y = e.offsetY || e.layerY;
         c.setAttribute('cx', '' + x);
         c.setAttribute('cy', '' + y);
         if (e.target.id.split('_')[0] == 'c') {
@@ -115,7 +123,22 @@ export default {
       svg.appendChild(p);
     })
 
+    const createPath = () => {
+      pathText.value = path.join(' ')
+    }
+
+    
+    const clearPath = () => {
+      let clearP = document.getElementById("p");
+      clearP.points.clear();
+      pathText.value = ''
+      path = []
+    }
+
     return {
+      pathText,
+      createPath,
+      clearPath,
       createCircle
     }
   }

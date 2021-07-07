@@ -1,12 +1,15 @@
 <template>
-  <router-view></router-view>
+  <div>
+line
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'ECharts'
-}
+  export default {
+    name:'Line'
+  }
 </script>
 
 <style lang="scss" scoped>
+
 </style>

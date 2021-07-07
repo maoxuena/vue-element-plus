@@ -16,7 +16,9 @@ export function convertRouter (constantRoutes) {
         const path = 'layout/BasicLayout'   
         route.component = () => Promise.resolve(require(`@/${path}`).default)
         // route.component = (resolve) => require([`@/${path}`], resolve)      
-      } else {
+      } else if (route.component === 'router-view') {
+        route.component = { render(c) { return c('router-view') }}
+      }else {
         let path = 'views/' + route.component
         if (
           new RegExp('^/views/.*$').test(route.component) ||

@@ -52,7 +52,28 @@ const menuList = {
             title: 'ECharts',
             icon: 'ECharts',
           },
-          component: 'Charts/ECharts'
+          component:'Charts/ECharts',
+          alwaysShow: true,
+          children: [
+            {
+              path: 'line',
+              name: 'Line',
+              meta: {
+                title: 'Line',
+                icon: 'ECharts',
+              },
+              component: 'Charts/ECharts/Line'
+            },
+            {
+              path: 'bar',
+              name: 'Bar',
+              meta: {
+                title: 'Bar',
+                icon: 'ECharts',
+              },
+              component: 'Charts/ECharts/Bar'
+            }
+          ]
         }
       ]
     },
