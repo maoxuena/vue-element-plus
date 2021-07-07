@@ -31,6 +31,34 @@
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
+          <span>组件</span>
+        </div>
+      </template>
+      <div class="icon-box">
+        <el-row :gutter="20">
+          <el-col
+            v-for="(item, index) in fileComponent"
+            :key="index"
+            :lg="2"
+            :md="3"
+            :sm="8"
+            :xl="2"
+            :xs="6"
+          >
+            <el-card shadow="hover">
+              <svg-icon :icon-class="item" />
+              <div class="copy-icon" @click="handleCopyIcon(item, $event)"></div>
+            </el-card>
+            <div class="icon-text" @click="handleCopyText(item, $event)">
+              {{ item }}
+            </div>
+          </el-col>
+        </el-row>
+      </div>       
+    </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
           <span>表单</span>
         </div>
       </template>
@@ -184,6 +212,7 @@ export default {
 
     // svg分类
     let fileCommon = [] // 通用
+    let fileComponent = [] // 组件
     let fileChart = [] // 图表
     let fileFiles = [] // 文件
     let fileForm = [] // 表单
@@ -192,6 +221,8 @@ export default {
     fliesName.forEach(item=>{
       if(item.startsWith('chart')){
         fileChart.push(item)
+      }else if(item.startsWith('component')){
+        fileComponent.push(item)
       }else if(item.startsWith('files')){
         fileFiles.push(item)
       }else if(item.startsWith('form')){
@@ -216,6 +247,7 @@ export default {
     }
 
     return {
+      fileComponent,
       fileChart,
       fileFiles,
       fileForm,

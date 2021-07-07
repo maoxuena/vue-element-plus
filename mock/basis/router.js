@@ -41,7 +41,7 @@ const menuList = {
           name: 'D3',
           meta: {
             title: 'D3',
-            icon: 'd3',
+            icon: 'chart-d3',
           },
           component: 'Charts/D3'
         },
@@ -50,7 +50,7 @@ const menuList = {
           name: 'ECharts',
           meta: {
             title: 'ECharts',
-            icon: 'ECharts',
+            icon: 'chart-ECharts',
           },
           component:'Charts/ECharts',
           alwaysShow: true,
@@ -60,7 +60,7 @@ const menuList = {
               name: 'Line',
               meta: {
                 title: 'Line',
-                icon: 'ECharts',
+                icon: 'chart-line',
               },
               component: 'Charts/ECharts/Line'
             },
@@ -69,9 +69,18 @@ const menuList = {
               name: 'Bar',
               meta: {
                 title: 'Bar',
-                icon: 'ECharts',
+                icon: 'chart-bar',
               },
               component: 'Charts/ECharts/Bar'
+            },
+            {
+              path: 'map',
+              name: 'Map',
+              meta: {
+                title: 'Map',
+                icon: 'chart-map',
+              },
+              component: 'Charts/ECharts/Map'
             }
           ]
         }
@@ -161,7 +170,7 @@ const menuList = {
       redirect: '/assembly/icon',
       meta: {
         title: '组件',
-        icon: 'assembly',
+        icon: 'component-assembly',
       },
       component: 'BasicLayout',
       children: [
@@ -179,7 +188,7 @@ const menuList = {
           name: 'Table',
           meta: {
             title: '表格',
-            icon: 'table',
+            icon: 'component-table',
           },
           component: 'Assembly/Table'
         }

@@ -75,7 +75,7 @@ export const asyncRoutes = [
         name: 'D3',
         meta: {
           title: 'D3',
-          icon: 'd3',
+          icon: 'chart-d3',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/D3')
       },
@@ -85,7 +85,7 @@ export const asyncRoutes = [
         name: 'ECharts',
         meta: {
           title: 'ECharts',
-          icon: 'ECharts',
+          icon: 'chart-ECharts',
         },
         component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts'),
         alwaysShow: true,
@@ -95,7 +95,7 @@ export const asyncRoutes = [
             name: 'Line',
             meta: {
               title: 'Line',
-              icon: 'ECharts',
+              icon: 'chart-line',
             },
             component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts/Line')
           },
@@ -104,9 +104,18 @@ export const asyncRoutes = [
             name: 'Bar',
             meta: {
               title: 'Bar',
-              icon: 'ECharts',
+              icon: 'chart-bar',
             },
             component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts/Bar')
+          },
+          {
+            path: 'map',
+            name: 'Map',
+            meta: {
+              title: 'Map',
+              icon: 'chart-map',
+            },
+            component: () => import(/* webpackChunkName: "charts" */ '@/views/Charts/ECharts/Map')
           }
         ]
       }
@@ -196,7 +205,7 @@ export const asyncRoutes = [
     redirect: '/assembly/icon',
     meta: {
       title: '组件',
-      icon: 'assembly',
+      icon: 'component-assembly',
     },
     component: BasicLayout,
     children: [
@@ -214,7 +223,7 @@ export const asyncRoutes = [
         name: 'Table',
         meta: {
           title: '表格',
-          icon: 'table',
+          icon: 'component-table',
         },
         component: () => import(/* webpackChunkName: "assembly" */ '@/views/Assembly/Table')
       }
