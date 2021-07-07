@@ -33,7 +33,6 @@ export default {
 
 
     const updateChart = () => {
-      console.log(props.data)
       props.data.map((item, index) => {
         seriesList.push({
           date: item.policy_time,
