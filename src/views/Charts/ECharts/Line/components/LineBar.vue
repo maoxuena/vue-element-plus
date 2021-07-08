@@ -27,9 +27,6 @@ export default {
     const Echarts = inject('ec')
     const options = ref(null)
 
-    
-
-
     const updateChart = () => {
       options.value = {
         title: {
