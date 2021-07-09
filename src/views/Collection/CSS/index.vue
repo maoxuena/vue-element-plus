@@ -5,12 +5,13 @@
       <el-tab-pane v-for="item in list"
                    :key="item.value"
                    :label="item.name">
-        <div class="tab-body">
+        <div class="tab-body scrollbar">
           <smile-cat v-if="item.value === 0" />
           <little-crab v-if="item.value === 1" />
           <bicycle v-if="item.value === 2" />
           <dog v-if="item.value === 3" />
           <tai-ji v-if="item.value === 4" />
+          <hover-effect v-if="item.value === 5" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -23,6 +24,7 @@ import LittleCrab from './components/LittleCrab.vue'
 import Bicycle from './components/Bicycle.vue'
 import Dog from './components/Dog.vue'
 import TaiJi from './components/TaiJi.vue'
+import HoverEffect from './components/HoverEffect.vue'
 export default {
   name: 'CSS',
   components: {
@@ -30,10 +32,15 @@ export default {
     LittleCrab,
     Bicycle,
     Dog,
-    TaiJi
+    TaiJi,
+    HoverEffect,
   },
   setup () {
     const list = [
+      {
+        name: '鼠标悬停特效',
+        value: 5
+      },
       {
         name: '笑脸猫',
         value: 0
@@ -53,7 +60,7 @@ export default {
       {
         name: '太极',
         value: 4
-      }
+      },
     ]
     return {
       list
@@ -68,6 +75,7 @@ export default {
 
   .tab-body {
     height: calc(100vh - 110px);
+    overflow-y: scroll;
   }
 }
 </style>

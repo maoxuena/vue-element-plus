@@ -321,7 +321,8 @@ export default {
   .ear-wrap {
     position: absolute;
     width: 400px;
-    top: 240px;
+    top: 50%;
+    margin-top: -80px;
     left: 50%;
     margin-left: -200px;
 
