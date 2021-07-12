@@ -544,36 +544,6 @@
         <div class="hover-effect-box">
           <div class="hover-effect-item">
             <div class="content">
-              <div class="hover-effect circle left_to_right effect10">
-                <div class="img">
-                  <img :src="require('@/assets/images/hoverEffect/5.jpg')" alt="img">
-                </div>
-                <div class="info-box">
-                  <h3>Heading here</h3>
-                  <p>Description goes here</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hover-effect-box">
-          <div class="hover-effect-item">
-            <div class="content">
-              <div class="hover-effect circle right_to_left effect10">
-                <div class="img">
-                  <img :src="require('@/assets/images/hoverEffect/6.jpg')" alt="img">
-                </div>
-                <div class="info-box">
-                  <h3>Heading here</h3>
-                  <p>Description goes here</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hover-effect-box">
-          <div class="hover-effect-item">
-            <div class="content">
               <div class="hover-effect circle top_to_bottom effect10">
                 <div class="img">
                   <img :src="require('@/assets/images/hoverEffect/7.jpg')" alt="img">
@@ -2133,10 +2103,10 @@
   
   &.effect9{
     .img {
-      z-index: 11;
-      -webkit-transition: all 0.35s ease-in-out;
-      -moz-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;      
+      opacity: 1;
+      -webkit-transition: all 0.35s ease-out;
+      -moz-transition: all 0.35s ease-out;
+      transition: all 0.35s ease-out; 
 
       &::before {
         position: absolute;
@@ -2155,10 +2125,16 @@
     .info-box {
       background: #333333;
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
-      -webkit-transition: all 0.35s ease-in-out;
-      -moz-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;
+      -webkit-transform: scale(0.5);
+      -moz-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+      -o-transform: scale(0.5);
+      transform: scale(0.5);
+      -webkit-transition: all 0.35s ease 0.2s;
+      -moz-transition: all 0.35s ease 0.2s;
+      transition: all 0.35s ease 0.2s;
 
       h3 {
         color: #fff;
@@ -2182,150 +2158,104 @@
       }
     }
 
-    &.left_to_right{
+    &:hover {
       .img {
-        -webkit-transform: scale(1) translateX(0);
-        -moz-transform: scale(1) translateX(0);
-        -ms-transform: scale(1) translateX(0);
-        -o-transform: scale(1) translateX(0);
-        transform: scale(1) translateX(0);
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        -o-transform: scale(0.5);
+        transform: scale(0.5);
       }
 
       .info-box {
-        -webkit-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
-        transform: translateX(-100%);
+        visibility: visible;
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    &.left_to_right{
+      .img {
+        -webkit-transform: translateX(0) rotate(0);
+        -moz-transform: translateX(0) rotate(0);
+        -ms-transform: translateX(0) rotate(0);
+        -o-transform: translateX(0) rotate(0);
+        transform: translateX(0) rotate(0);
       }
 
       &:hover {
         .img {
-          -webkit-transform: scale(0.5) translateX(100%);
-          -moz-transform: scale(0.5) translateX(100%);
-          -ms-transform: scale(0.5) translateX(100%);
-          -o-transform: scale(0.5) translateX(100%);
-          transform: scale(0.5) translateX(100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateX(0);
-          -moz-transform: translateX(0);
-          -ms-transform: translateX(0);
-          -o-transform: translateX(0);
-          transform: translateX(0);
+          -webkit-transform: translateX(100%) rotate(180deg);
+          -moz-transform: translateX(100%) rotate(180deg);
+          -ms-transform: translateX(100%) rotate(180deg);
+          -o-transform: translateX(100%) rotate(180deg);
+          transform: translateX(100%) rotate(180deg);
         }
       }
     }
 
     &.right_to_left{
       .img {
-        -webkit-transform: scale(1) translateX(0);
-        -moz-transform: scale(1) translateX(0);
-        -ms-transform: scale(1) translateX(0);
-        -o-transform: scale(1) translateX(0);
-        transform: scale(1) translateX(0);
-      }
-
-      .info-box {
-        -webkit-transform: translateX(100%);
-        -moz-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-        -o-transform: translateX(100%);
-        transform: translateX(100%);
+        -webkit-transform: translateX(0) rotate(0);
+        -moz-transform: translateX(0) rotate(0);
+        -ms-transform: translateX(0) rotate(0);
+        -o-transform: translateX(0) rotate(0);
+        transform: translateX(0) rotate(0);
       }
 
       &:hover {
-        .img {
-          -webkit-transform: scale(0.5) translateX(-100%);
-          -moz-transform: scale(0.5) translateX(-100%);
-          -ms-transform: scale(0.5) translateX(-100%);
-          -o-transform: scale(0.5) translateX(-100%);
-          transform: scale(0.5) translateX(-100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateX(0);
-          -moz-transform: translateX(0);
-          -ms-transform: translateX(0);
-          -o-transform: translateX(0);
-          transform: translateX(0);
+        .img {          
+          -webkit-transform: translateX(-100%) rotate(-180deg);
+          -moz-transform: translateX(-100%) rotate(-180deg);
+          -ms-transform: translateX(-100%) rotate(-180deg);
+          -o-transform: translateX(-100%) rotate(-180deg);
+          transform: translateX(-100%) rotate(-180deg);
         }
       }
     }
 
     &.top_to_bottom{
       .img {
-        -webkit-transform: scale(1) translateY(0);
-        -moz-transform: scale(1) translateY(0);
-        -ms-transform: scale(1) translateY(0);
-        -o-transform: scale(1) translateY(0);
-        transform: scale(1) translateY(0);
-      }
-
-      .info-box {
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
-        transform: translateY(-100%);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
       }
 
       &:hover {
         .img {
-          -webkit-transform: scale(0.5) translateY(100%);
-          -moz-transform: scale(0.5) translateY(100%);
-          -ms-transform: scale(0.5) translateY(100%);
-          -o-transform: scale(0.5) translateY(100%);
-          transform: scale(0.5) translateY(100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          -moz-transform: translateY(0);
-          -ms-transform: translateY(0);
-          -o-transform: translateY(0);
-          transform: translateY(0);
+          -webkit-transform: translateY(-100%);
+          -moz-transform: translateY(-100%);
+          -ms-transform: translateY(-100%);
+          -o-transform: translateY(-100%);
+          transform: translateY(-100%);
         }
       }
     }
 
     &.bottom_to_top{
       .img {
-        -webkit-transform: scale(1) translateY(0);
-        -moz-transform: scale(1) translateY(0);
-        -ms-transform: scale(1) translateY(0);
-        -o-transform: scale(1) translateY(0);
-        transform: scale(1) translateY(0);
-      }
-
-      .info-box {
-        -webkit-transform: translateY(100%);
-        -moz-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        transform: translateY(100%);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
       }
 
       &:hover {
         .img {
-          -webkit-transform: scale(0.5) translateY(-100%);
-          -moz-transform: scale(0.5) translateY(-100%);
-          -ms-transform: scale(0.5) translateY(-100%);
-          -o-transform: scale(0.5) translateY(-100%);
-          transform: scale(0.5) translateY(-100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          -moz-transform: translateY(0);
-          -ms-transform: translateY(0);
-          -o-transform: translateY(0);
-          transform: translateY(0);
+          -webkit-transform: translateY(100%);
+          -moz-transform: translateY(100%);
+          -ms-transform: translateY(100%);
+          -o-transform: translateY(100%);
+          transform: translateY(100%);
         }
       }
     }
@@ -2334,9 +2264,14 @@
   &.effect10{
     .img {
       z-index: 11;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
       -webkit-transition: all 0.35s ease-in-out;
       -moz-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;      
+      transition: all 0.35s ease-in-out;    
 
       &::before {
         position: absolute;
@@ -2355,7 +2290,11 @@
     .info-box {
       background: #333333;
       opacity: 0;
-      pointer-events: none;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
       -webkit-transition: all 0.35s ease-in-out;
       -moz-transition: all 0.35s ease-in-out;
       transition: all 0.35s ease-in-out;
@@ -2366,166 +2305,74 @@
         position: relative;
         letter-spacing: 2px;
         font-size: 22px;
-        margin: 0 30px;
-        padding: 55px 0 0 0;
-        height: 110px;
         text-shadow: 0 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       p {
         color: #bbb;
-        padding: 10px 5px;
         font-style: italic;
-        margin: 0 30px;
         font-size: 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.5);
       }
     }
 
-    &.left_to_right{
-      .img {
-        -webkit-transform: scale(1) translateX(0);
-        -moz-transform: scale(1) translateX(0);
-        -ms-transform: scale(1) translateX(0);
-        -o-transform: scale(1) translateX(0);
-        transform: scale(1) translateX(0);
-      }
-
+    &:hover {
       .info-box {
-        -webkit-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
-        transform: translateX(-100%);
-      }
-
-      &:hover {
-        .img {
-          -webkit-transform: scale(0.5) translateX(100%);
-          -moz-transform: scale(0.5) translateX(100%);
-          -ms-transform: scale(0.5) translateX(100%);
-          -o-transform: scale(0.5) translateX(100%);
-          transform: scale(0.5) translateX(100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateX(0);
-          -moz-transform: translateX(0);
-          -ms-transform: translateX(0);
-          -o-transform: translateX(0);
-          transform: translateX(0);
-        }
-      }
-    }
-
-    &.right_to_left{
-      .img {
-        -webkit-transform: scale(1) translateX(0);
-        -moz-transform: scale(1) translateX(0);
-        -ms-transform: scale(1) translateX(0);
-        -o-transform: scale(1) translateX(0);
-        transform: scale(1) translateX(0);
-      }
-
-      .info-box {
-        -webkit-transform: translateX(100%);
-        -moz-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-        -o-transform: translateX(100%);
-        transform: translateX(100%);
-      }
-
-      &:hover {
-        .img {
-          -webkit-transform: scale(0.5) translateX(-100%);
-          -moz-transform: scale(0.5) translateX(-100%);
-          -ms-transform: scale(0.5) translateX(-100%);
-          -o-transform: scale(0.5) translateX(-100%);
-          transform: scale(0.5) translateX(-100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateX(0);
-          -moz-transform: translateX(0);
-          -ms-transform: translateX(0);
-          -o-transform: translateX(0);
-          transform: translateX(0);
-        }
+        visibility: visible;
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
       }
     }
 
     &.top_to_bottom{
-      .img {
-        -webkit-transform: scale(1) translateY(0);
-        -moz-transform: scale(1) translateY(0);
-        -ms-transform: scale(1) translateY(0);
-        -o-transform: scale(1) translateY(0);
-        transform: scale(1) translateY(0);
-      }
-
       .info-box {
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
-        transform: translateY(-100%);
+        justify-content: flex-start;
+
+        h3 {
+          margin: 0 30px;
+          padding: 25px 0 0 0;
+        }
+
+        p {
+          margin: 0 30px;
+          padding: 5px;
+        }
       }
 
       &:hover {
         .img {
-          -webkit-transform: scale(0.5) translateY(100%);
-          -moz-transform: scale(0.5) translateY(100%);
-          -ms-transform: scale(0.5) translateY(100%);
-          -o-transform: scale(0.5) translateY(100%);
-          transform: scale(0.5) translateY(100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          -moz-transform: translateY(0);
-          -ms-transform: translateY(0);
-          -o-transform: translateY(0);
-          transform: translateY(0);
+          -webkit-transform: translateY(25%) scale(0.5);
+          -moz-transform: translateY(25%) scale(0.5);
+          -ms-transform: translateY(25%) scale(0.5);
+          -o-transform: translateY(25%) scale(0.5);
+          transform: translateY(25%) scale(0.5);
         }
       }
     }
 
     &.bottom_to_top{
-      .img {
-        -webkit-transform: scale(1) translateY(0);
-        -moz-transform: scale(1) translateY(0);
-        -ms-transform: scale(1) translateY(0);
-        -o-transform: scale(1) translateY(0);
-        transform: scale(1) translateY(0);
-      }
-
       .info-box {
-        -webkit-transform: translateY(100%);
-        -moz-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        transform: translateY(100%);
+        h3 {
+          margin: 50% 30px 0;
+        }
+
+        p {
+          margin: 0 30px;
+          padding: 5px;
+        }
       }
 
       &:hover {
         .img {
-          -webkit-transform: scale(0.5) translateY(-100%);
-          -moz-transform: scale(0.5) translateY(-100%);
-          -ms-transform: scale(0.5) translateY(-100%);
-          -o-transform: scale(0.5) translateY(-100%);
-          transform: scale(0.5) translateY(-100%);
-        }
-
-        .info-box {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          -moz-transform: translateY(0);
-          -ms-transform: translateY(0);
-          -o-transform: translateY(0);
-          transform: translateY(0);
+          -webkit-transform: translateY(-25%) scale(0.5);
+          -moz-transform: translateY(-25%) scale(0.5);
+          -ms-transform: translateY(-25%) scale(0.5);
+          -o-transform: translateY(-25%) scale(0.5);
+          transform: translateY(-25%) scale(0.5);
         }
       }
     }
