@@ -927,8 +927,7 @@
         <div class="card-header">
           <span>Circle Hover effect 18</span>
         </div>
-      </template> 
-      
+      </template>
      <el-alert
       title="Note: This will not work in IE9, since IE9 doesn't support 3d rotate."
       type="warning"
@@ -1380,10 +1379,15 @@
         <div class="card-header">
           <span>Square Hover effect 9</span>
         </div>
-      </template> 
+      </template>       
+      <el-alert
+        title="Note: This will not work in IE9, since IE9 doesn't support 3d rotate."
+        type="warning"
+        effect="dark">
+      </el-alert>
       <div class="hover-effect-container flex-box">
         <div class="hover-effect-box">
-          <div class="hover-effect-item is-square">
+          <div class="hover-effect-item is-square" style="padding: 72% 100% 0 0">
             <div class="content">
               <div class="hover-effect square bottom_to_top effect9">
                 <div class="img">
@@ -1398,7 +1402,7 @@
           </div>
         </div>
         <div class="hover-effect-box">
-          <div class="hover-effect-item is-square">
+          <div class="hover-effect-item is-square" style="padding: 72% 100% 0 0">
             <div class="content">
               <div class="hover-effect square top_to_bottom effect9">
                 <div class="img">
@@ -1413,7 +1417,7 @@
           </div>
         </div>
         <div class="hover-effect-box">
-          <div class="hover-effect-item is-square">
+          <div class="hover-effect-item is-square" style="padding: 72% 100% 0 0">
             <div class="content">
               <div class="hover-effect square left_to_right effect9">
                 <div class="img">
@@ -1428,7 +1432,7 @@
           </div>
         </div>
         <div class="hover-effect-box">
-          <div class="hover-effect-item is-square">
+          <div class="hover-effect-item is-square" style="padding: 72% 100% 0 0">
             <div class="content">
               <div class="hover-effect square right_to_left effect9">
                 <div class="img">
@@ -5794,6 +5798,376 @@
               -o-transform: translateY(0);
               transform: translateY(0);
             }
+          }
+        }
+      }
+    }
+
+    &.effect7 {
+      overflow: hidden;
+
+      .img {
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+      }
+
+      .info-box {
+        background: #333333;
+        background: rgba(0, 0, 0, 0.6);
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+
+        h3 {
+          text-transform: uppercase;
+          color: #fff;
+          text-align: center;
+          font-size: 17px;
+          padding: 10px;
+          background: #111111;
+          margin: 30px 0 0 0;
+          -webkit-transform: scale(4);
+          -moz-transform: scale(4);
+          -ms-transform: scale(4);
+          -o-transform: scale(4);
+          transform: scale(4);
+          -webkit-transition: all 0.35s 0.1s ease-in-out;
+          -moz-transition: all 0.35s 0.1s ease-in-out;
+          transition: all 0.35s 0.1s ease-in-out;
+        }
+
+        p {
+          font-style: italic;
+          font-size: 12px;
+          position: relative;
+          color: #bbb;
+          padding: 20px 20px 20px;
+          text-align: center;
+          -webkit-transform: scale(5);
+          -moz-transform: scale(5);
+          -ms-transform: scale(5);
+          -o-transform: scale(5);
+          transform: scale(5);
+          -webkit-transition: all 0.35s 0.3s linear;
+          -moz-transition: all 0.35s 0.3s linear;
+          transition: all 0.35s 0.3s linear;
+        }
+      }
+
+      &:hover {
+        .img {
+          -webkit-transform: scale(1.2);
+          -moz-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          -o-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+
+        .info-box {
+          visibility: visible;
+          opacity: 1;
+
+          h3, p {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    &.effect8 {
+      overflow: hidden;
+
+      .img {
+        opacity: 1;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .info-box {
+        background: #333333;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+
+        h3 {
+          text-transform: uppercase;
+          color: #fff;
+          text-align: center;
+          font-size: 17px;
+          padding: 10px;
+          background: #111111;
+          margin: 30px 0 0 0;
+          -webkit-transition: all 0.35s 0.1s ease-in-out;
+          -moz-transition: all 0.35s 0.1s ease-in-out;
+          transition: all 0.35s 0.1s ease-in-out;
+        }
+
+        p {
+          font-style: italic;
+          font-size: 12px;
+          position: relative;
+          color: #bbb;
+          padding: 20px 20px 20px;
+          text-align: center;
+          -webkit-transition: all 0.35s 0.15s linear;
+          -moz-transition: all 0.35s 0.15s linear;
+          transition: all 0.35s 0.15s linear;
+        }
+      }
+
+      &:hover {
+        .img {
+          opacity: 0;
+        }
+
+        .info-box {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      &.scale_up {
+        .img {
+          -webkit-transform: scale(1);
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -o-transform: scale(1);
+          transform: scale(1);
+        }
+
+        .info-box {
+          -webkit-transform: scale(0);
+          -moz-transform: scale(0);
+          -ms-transform: scale(0);
+          -o-transform: scale(0);
+          transform: scale(0);
+
+          h3,p {
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            transform: scale(0);
+          }
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: scale(5);
+            -moz-transform: scale(5);
+            -ms-transform: scale(5);
+            -o-transform: scale(5);
+            transform: scale(5);
+          }
+
+          .info-box {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+
+            h3,p {
+              -webkit-transform: scale(1);
+              -moz-transform: scale(1);
+              -ms-transform: scale(1);
+              -o-transform: scale(1);
+              transform: scale(1);
+            }
+          }
+        }
+      }
+
+      &.scale_down {
+        .img {
+          -webkit-transform: scale(1);
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -o-transform: scale(1);
+          transform: scale(1);
+        }
+
+        .info-box {
+          -webkit-transform: scale(5);
+          -moz-transform: scale(5);
+          -ms-transform: scale(5);
+          -o-transform: scale(5);
+          transform: scale(5);
+
+          h3,p {
+            -webkit-transform: scale(5);
+            -moz-transform: scale(5);
+            -ms-transform: scale(5);
+            -o-transform: scale(5);
+            transform: scale(5);
+          }
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+            -ms-transform: scale(0.5);
+            -o-transform: scale(0.5);
+            transform: scale(0.5);
+          }
+
+          .info-box {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+
+            h3,p {
+              -webkit-transform: scale(1);
+              -moz-transform: scale(1);
+              -ms-transform: scale(1);
+              -o-transform: scale(1);
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+
+    &.effect9 {
+      -webkit-perspective: 900px;
+      -moz-perspective: 900px;
+      perspective: 900px;
+
+      .img {
+        position: relative;
+        z-index: 11;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+      }
+
+      .info-box {
+        z-index: 0;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        padding-top: 30px;
+        background: #333333;
+
+        h3 {
+          text-transform: uppercase;
+          color: #fff;
+          text-align: center;
+          font-size: 17px;
+          padding: 10px;
+          background: #111111;
+          margin: 0;
+        }
+
+        p {
+          font-style: italic;
+          font-size: 12px;
+          position: relative;
+          color: #bbb;
+          padding: 20px 20px 20px;
+          text-align: center;
+        }
+      }
+
+      &.left_to_right{
+         .img {
+          -webkit-transform-origin: 100% 50%;
+          -moz-transform-origin: 100% 50%;
+          -ms-transform-origin: 100% 50%;
+          -o-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: rotate3d(0, 1, 0, 180deg);
+            -moz-transform: rotate3d(0, 1, 0, 180deg);
+            -ms-transform: rotate3d(0, 1, 0, 180deg);
+            -o-transform: rotate3d(0, 1, 0, 180deg);
+            transform: rotate3d(0, 1, 0, 180deg);
+          }
+        }
+      }
+
+      &.right_to_left{
+         .img {
+            -webkit-transform-origin: 0% 50%;
+            -moz-transform-origin: 0% 50%;
+            -ms-transform-origin: 0% 50%;
+            -o-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: rotate3d(0, 1, 0, -180deg);
+            -moz-transform: rotate3d(0, 1, 0, -180deg);
+            -ms-transform: rotate3d(0, 1, 0, -180deg);
+            -o-transform: rotate3d(0, 1, 0, -180deg);
+            transform: rotate3d(0, 1, 0, -180deg);
+          }
+        }
+      }
+
+      &.top_to_bottom{
+         .img {
+            -webkit-transform-origin: 50% 100%;
+            -moz-transform-origin: 50% 100%;
+            -ms-transform-origin: 50% 100%;
+            -o-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: rotate3d(1, 0, 0, -180deg);
+            -moz-transform: rotate3d(1, 0, 0, -180deg);
+            -ms-transform: rotate3d(1, 0, 0, -180deg);
+            -o-transform: rotate3d(1, 0, 0, -180deg);
+            transform: rotate3d(1, 0, 0, -180deg);
+          }
+        }
+      }
+
+      &.bottom_to_top{
+         .img {
+            -webkit-transform-origin: 50% 0;
+            -moz-transform-origin: 50% 0;
+            -ms-transform-origin: 50% 0;
+            -o-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+        }
+
+        &:hover {
+          .img {
+            -webkit-transform: rotate3d(1, 0, 0, 180deg);
+            -moz-transform: rotate3d(1, 0, 0, 180deg);
+            -ms-transform: rotate3d(1, 0, 0, 180deg);
+            -o-transform: rotate3d(1, 0, 0, 180deg);
+            transform: rotate3d(1, 0, 0, 180deg);
           }
         }
       }
