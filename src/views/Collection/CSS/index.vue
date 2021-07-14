@@ -13,6 +13,7 @@
           <tai-ji v-if="item.value === 4" />
           <hover-effect v-if="item.value === 5" />
           <css-button v-if="item.value === 6" />
+          <droplet v-if="item.value === 7" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -27,6 +28,7 @@ import Dog from './components/Dog.vue'
 import TaiJi from './components/TaiJi.vue'
 import HoverEffect from './components/HoverEffect.vue'
 import CssButton from './components/CssButton.vue'
+import Droplet from './components/Droplet.vue'
 export default {
   name: 'CSS',
   components: {
@@ -36,7 +38,8 @@ export default {
     Dog,
     TaiJi,
     HoverEffect,
-    CssButton
+    CssButton,
+    Droplet
   },
   setup () {
     const list = [
@@ -67,6 +70,10 @@ export default {
       {
         name: '按钮',
         value: 6
+      },
+      {
+        name: '水滴',
+        value: 7
       },
     ]
     return {
