@@ -14,6 +14,7 @@
           <hover-effect v-if="item.value === 5" />
           <css-button v-if="item.value === 6" />
           <droplet v-if="item.value === 7" />
+          <leader-board v-if="item.value === 8" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -29,6 +30,8 @@ import TaiJi from './components/TaiJi.vue'
 import HoverEffect from './components/HoverEffect.vue'
 import CssButton from './components/CssButton.vue'
 import Droplet from './components/Droplet.vue'
+import LeaderBoard from './components/LeaderBoard.vue'
+
 export default {
   name: 'CSS',
   components: {
@@ -39,7 +42,8 @@ export default {
     TaiJi,
     HoverEffect,
     CssButton,
-    Droplet
+    Droplet,
+    LeaderBoard
   },
   setup () {
     const list = [
@@ -74,6 +78,10 @@ export default {
       {
         name: '水滴',
         value: 7
+      },
+      {
+        name: '比赛排行榜',
+        value: 8
       },
     ]
     return {
