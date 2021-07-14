@@ -15,6 +15,7 @@
           <css-button v-if="item.value === 6" />
           <droplet v-if="item.value === 7" />
           <leader-board v-if="item.value === 8" />
+          <photo-wall v-if="item.value === 9" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -31,7 +32,7 @@ import HoverEffect from './components/HoverEffect.vue'
 import CssButton from './components/CssButton.vue'
 import Droplet from './components/Droplet.vue'
 import LeaderBoard from './components/LeaderBoard.vue'
-
+import PhotoWall from './components/PhotoWall.vue'
 export default {
   name: 'CSS',
   components: {
@@ -43,7 +44,8 @@ export default {
     HoverEffect,
     CssButton,
     Droplet,
-    LeaderBoard
+    LeaderBoard,
+    PhotoWall
   },
   setup () {
     const list = [
@@ -82,6 +84,10 @@ export default {
       {
         name: '比赛排行榜',
         value: 8
+      },
+      {
+        name: '照片墙',
+        value: 9
       },
     ]
     return {

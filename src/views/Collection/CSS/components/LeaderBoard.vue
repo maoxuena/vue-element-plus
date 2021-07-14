@@ -39,7 +39,7 @@
           </g>
         </g>
       </svg>
-      <h1 class="title"><span class="title-top">Forbes</span><span class="title-bottom">leader-board-page</span></h1>
+      <h1 class="title"><span class="title-top">Forbes</span><span class="title-bottom">leaderboard</span></h1>
     </header>      
     <main class="profiles">
       <article class="profile">
