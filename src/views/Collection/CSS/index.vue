@@ -12,6 +12,7 @@
           <dog v-if="item.value === 3" />
           <tai-ji v-if="item.value === 4" />
           <hover-effect v-if="item.value === 5" />
+          <css-button v-if="item.value === 6" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -25,6 +26,7 @@ import Bicycle from './components/Bicycle.vue'
 import Dog from './components/Dog.vue'
 import TaiJi from './components/TaiJi.vue'
 import HoverEffect from './components/HoverEffect.vue'
+import CssButton from './components/CssButton.vue'
 export default {
   name: 'CSS',
   components: {
@@ -34,13 +36,10 @@ export default {
     Dog,
     TaiJi,
     HoverEffect,
+    CssButton
   },
   setup () {
     const list = [
-      {
-        name: '鼠标悬停特效',
-        value: 5
-      },
       {
         name: '笑脸猫',
         value: 0
@@ -60,6 +59,14 @@ export default {
       {
         name: '太极',
         value: 4
+      },
+      {
+        name: '鼠标悬停特效',
+        value: 5
+      },
+      {
+        name: '按钮',
+        value: 6
       },
     ]
     return {
