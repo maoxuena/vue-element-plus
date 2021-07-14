@@ -11,6 +11,11 @@
           <time-line :data="timeLineList" />
         </div>
       </el-col>
+      <el-col :xs="24">
+        <div class="chart-box" style="height:500px">
+          <line-trends :data="trendsData" />
+        </div>
+      </el-col>
       <el-col :xs="8"
               :sm="6"
               :md="4"
@@ -23,14 +28,16 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import LineBar from './components/LineBar.vue'
 import TimeLine from './components/TimeLine.vue'
+import LineTrends from './components/LineTrends.vue'
   export default {
     name:'Line',
     components:{
       LineBar,
-      TimeLine
+      TimeLine,
+      LineTrends
     },
     setup(){
       const lineBarData = ref({})
@@ -41,6 +48,7 @@ import TimeLine from './components/TimeLine.vue'
         barData: [4600,5000,5500,6500,7500,8500,9900,12500,14000,21500,23200,24450,25250,33300,4600,5000,5500,6500,7500,8500,9900,22500,14000,21500,8500,9900,12500,14000,21500,23200,24450,25250,7500],
         rateData: [],  
       }
+
       const timeLineList = ref([])
       timeLineList.value = [
         {
@@ -157,9 +165,39 @@ import TimeLine from './components/TimeLine.vue'
         lineBarData.value.rateData[i] = rate.toFixed(2);
       }
 
+      const trendsData = ref([])
+      let now = +new Date(1997, 9, 3)
+      let oneDay = 24 * 3600 * 1000
+      let value = Math.random() * 1000
+
+      const randomData = () => {
+        now = new Date(+now + oneDay)
+        value = value + Math.random() * 21 - 10
+        return {
+          name: now.toString(),
+          value: [
+            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+            Math.round(value)
+          ]
+        }
+      }
+
+      onMounted(()=>{        
+        for (var i = 0; i < 1000; i++) {
+          trendsData.value.push(randomData())
+        }
+        setInterval(() => {
+          for (var i = 0; i < 5; i++) {
+            trendsData.value.shift()
+            trendsData.value.push(randomData())
+          }
+        }, 1000)
+      })
+
       return {
         lineBarData,
-        timeLineList
+        timeLineList,
+        trendsData
       }
     }
   }
