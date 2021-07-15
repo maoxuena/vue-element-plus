@@ -8,6 +8,10 @@
       <el-button @click="pauseAnimation">暂停动画</el-button>
       <el-button @click="resumeAnimation">继续动画</el-button>
       <el-button @click="stopAnimation">停止动画</el-button>
+    </div>    
+    <div class="btn-box">
+      <el-button @click="startDrawPolygon">绘制Polygon</el-button>
+      <el-button @click="endDrawPolygon">完成绘制</el-button>
     </div>
     <!-- 使用方法 -->
     <div class="use-method">
@@ -250,8 +254,8 @@ export default {
 
     /**
      * 其他坐标系转高德坐标系
-     * @param locations 坐标点
-     * @param coordsys 原坐标系
+     * @param { number[] } locations 坐标点
+     * @param { string } coordsys 原坐标系
      * GPS 坐标：coordsys=gps
      * 百度坐标：coordsys=baidu
      * 图吧坐标：coordsys=mapbar
@@ -287,10 +291,8 @@ export default {
         lineJoin: 'round', // 折线拐点连接处样式
         showDir: true// 是否显示箭头
       })
-      console.log(polyline)
       map.add(polyline)
       map.setFitView()
-      console.log(path)
       addLineMarker(path)
     }
 
@@ -323,7 +325,6 @@ export default {
         icon: endIcon,
         offset: new AMap.Pixel(-13, -30)
       })
-      console.log(startMarker, endMarker)
       map.add([startMarker, endMarker])
     }
 
@@ -354,7 +355,7 @@ export default {
       })
       
       marker.on('moving', function (e) {
-          passedPolyline.setPath(e.passedPath);
+          passedPolyline.setPath(e.passedPath)
       })
     }
 
@@ -362,28 +363,81 @@ export default {
      * 开始动画
      */
     const startAnimation = () => {
-        marker.moveAlong(lineArr, 2000);
+        marker.moveAlong(lineArr, 2000)
     }
 
     /**
      * 暂停动画
      */
     const pauseAnimation = () => {
-        marker.pauseMove();
+        marker.pauseMove()
     }
 
     /**
      * 继续动画
      */
     const resumeAnimation = () => {
-        marker.resumeMove();
+        marker.resumeMove()
     }
 
     /**
      * 停止动画
      */
     const stopAnimation = () => {
-        marker.stopMove();
+        marker.stopMove()
+    }
+
+    let beginPoints = []
+    let beginMarks = []
+    let beginNum = 0
+    // let polygonEditor = ''
+    // let Polygon
+    let clickListener
+
+    const startDrawPolygon = () => {
+      clickListener = AMap.event.addListener(map, "click", function(e){
+        beginMarks.push(addMarker(e.lnglat))
+        beginPoints.push(e.lnglat)
+        beginNum++
+        console.log(beginNum)
+      })
+
+      map.on("dblclick", function(){
+        createPolygon(beginPoints)
+        clearMarks()	
+      })
+    }
+
+    const endDrawPolygon = () => {
+      AMap.event.removeListener(clickListener)
+    }
+
+    const createPolygon = (arr) => {
+      const polygon = new AMap.Polygon({
+        map: map,
+        path: arr,
+        strokeColor: "#0000ff",
+        strokeOpacity: 1,
+        strokeWeight: 3,
+        fillColor: "#f5deb3",
+        fillOpacity: 0.35
+      })
+      console.log(polygon)
+      return polygon
+    }
+
+    const clearMarks = () => {
+        map.remove(beginMarks)
+    }
+
+    // 实例化点标记
+    const addMarker = (lnglat) => {        
+      const marker = new AMap.Marker({
+          icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+          position: lnglat
+      })
+      marker.setMap(map)
+      return marker
     }
 
     onMounted(() => {
@@ -406,6 +460,8 @@ export default {
       pauseAnimation,
       resumeAnimation,
       stopAnimation,
+      startDrawPolygon,
+      endDrawPolygon,
     }
   }
 }

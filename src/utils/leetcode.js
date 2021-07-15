@@ -8,7 +8,7 @@
  * @return {number[]}
  * 例：输入：nums = [2,7,11,15], target = 9，输出：[0,1]
  */
- var twoSum = function(nums, target) {
+ const twoSum = function(nums, target) {
   for(let i =0;i<nums.length;i++) {
       let diff = target - nums[i];
       if(nums.indexOf(diff)!=-1 && nums.indexOf(diff)!=i){
