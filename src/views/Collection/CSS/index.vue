@@ -16,6 +16,7 @@
           <droplet v-if="item.value === 7" />
           <leader-board v-if="item.value === 8" />
           <photo-wall v-if="item.value === 9" />
+          <slide v-if="item.value === 10" />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -33,6 +34,7 @@ import CssButton from './components/CssButton.vue'
 import Droplet from './components/Droplet.vue'
 import LeaderBoard from './components/LeaderBoard.vue'
 import PhotoWall from './components/PhotoWall.vue'
+import Slide from './components/Slide.vue'
 export default {
   name: 'CSS',
   components: {
@@ -45,7 +47,8 @@ export default {
     CssButton,
     Droplet,
     LeaderBoard,
-    PhotoWall
+    PhotoWall,
+    Slide
   },
   setup () {
     const list = [
@@ -88,6 +91,10 @@ export default {
       {
         name: '照片墙',
         value: 9
+      },
+      {
+        name: '图片滑动',
+        value: 10
       },
     ]
     return {
