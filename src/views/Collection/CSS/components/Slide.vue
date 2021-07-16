@@ -13,25 +13,25 @@
           <span v-for="(item, index) in imgList" 
           :key="index" 
           :style="'background-image:url('+item.url+')'"
-          :class="index===active?'on'+type:''"></span>
+          :class="index===active?'on on'+type:''"></span>
         </div>
         <div class="cr-bgimg-item">
           <span v-for="(item, index) in imgList" 
           :key="index" 
           :style="'background-image:url('+item.url+')'"
-          :class="index===active?'on'+type:''"></span>
+          :class="index===active?'on on'+type:''"></span>
         </div>
         <div class="cr-bgimg-item">
           <span v-for="(item, index) in imgList" 
           :key="index" 
           :style="'background-image:url('+item.url+')'"
-          :class="index===active?'on'+type:''"></span>
+          :class="index===active?'on on'+type:''"></span>
         </div>
         <div class="cr-bgimg-item">
           <span v-for="(item, index) in imgList" 
           :key="index" 
           :style="'background-image:url('+item.url+')'"
-          :class="index===active?'on'+type:''"></span>
+          :class="index===active?'on on'+type:''"></span>
         </div>
       </div>  
       <!-- 标题 -->
@@ -56,60 +56,61 @@
 
 <script>
 import { ref } from 'vue'
-  export default {
-    name:'slide',
-    setup(){
-      const typeList = ref(['Demo1','Demo2','Demo3','Demo4'])
-      const type = ref(0)
-      const active = ref(0)
-      const activeStyle = ref({
-        'background-image':'url('+require('@/assets/images/slide/1.jpg')+')'
-      })
-      const imgList = ref([
-        {
-          url:require('@/assets/images/slide/1.jpg'),
-          title:'Serendipity',
-          content:'What you\'ve been dreaming of'
-        },
-        {
-          url:require('@/assets/images/slide/2.jpg'),
-          title:'Adventure',
-          content:'Where the fun begins'
-        },
-        {
-          url:require('@/assets/images/slide/3.jpg'),
-          title:'Nature',
-          content:'Unforgettable eperiences'
-        },
-        {
-          url:require('@/assets/images/slide/4.jpg'),
-          title:'Serenity',
-          content:'When silence touches nature'
-        }
-      ])
-
-      const select = (index) => {
-        type.value = index
+export default {
+  name:'slide',
+  setup(){
+    const typeList = ref(['Demo1','Demo2','Demo3','Demo4'])
+    const type = ref(0)
+    const active = ref(0)
+    const activeStyle = ref({
+      'background-image':'url('+require('@/assets/images/slide/1.jpg')+')'
+    })
+    const imgList = ref([
+      {
+        url:require('@/assets/images/slide/1.jpg'),
+        title:'Serendipity',
+        content:'What you\'ve been dreaming of'
+      },
+      {
+        url:require('@/assets/images/slide/2.jpg'),
+        title:'Adventure',
+        content:'Where the fun begins'
+      },
+      {
+        url:require('@/assets/images/slide/3.jpg'),
+        title:'Nature',
+        content:'Unforgettable eperiences'
+      },
+      {
+        url:require('@/assets/images/slide/4.jpg'),
+        title:'Serenity',
+        content:'When silence touches nature'
       }
+    ])
 
-      const changeEven = (index) => {
-        active.value = index        
-        activeStyle.value = {
-          'background-image':'url('+require('@/assets/images/slide/'+(index+1)+'.jpg')+')'
-        }
-      }
+    const select = (index) => {
+      type.value = index
+      active.value = 0  
+    }
 
-      return {
-        typeList,
-        type,
-        active,
-        imgList,
-        activeStyle,
-        select,
-        changeEven
+    const changeEven = (index) => {
+      active.value = index        
+      activeStyle.value = {
+        'background-image':'url('+require('@/assets/images/slide/'+(index+1)+'.jpg')+')'
       }
     }
+
+    return {
+      typeList,
+      type,
+      active,
+      imgList,
+      activeStyle,
+      select,
+      changeEven
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -157,7 +158,129 @@ import { ref } from 'vue'
     position: relative;
     margin: 0 auto;
     border: 20px solid #fff;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);    
+
+    &.demo0{
+      .cr-bgimg{
+        .cr-bgimg-item{
+          span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: -140px;
+            z-index: 2;
+            text-indent: -9000px;
+            -webkit-animation: slideOut 0.6s ease-in-out;
+            -moz-animation: slideOut 0.6s ease-in-out;
+            -o-animation: slideOut 0.6s ease-in-out;
+            -ms-animation: slideOut 0.6s ease-in-out;
+            animation: slideOut 0.6s ease-in-out;
+          }
+        }
+      }
+    }
+
+    &.demo1{
+      .cr-bgimg{
+        .cr-bgimg-item{
+          span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 140px;
+            z-index: 2;
+            text-indent: -9000px;
+            -webkit-animation: slideOutRight 0.6s ease-in-out;
+            -moz-animation: slideOutRight 0.6s ease-in-out;
+            -o-animation: slideOutRight 0.6s ease-in-out;
+            -ms-animation: slideOutRight 0.6s ease-in-out;
+            animation: slideOutRight 0.6s ease-in-out;
+          }
+
+          &:nth-child(even){
+             span{
+              -webkit-animation: slideOutLeft 0.6s ease-in-out;
+              -moz-animation: slideOutLeft 0.6s ease-in-out;
+              -o-animation: slideOutLeft 0.6s ease-in-out;
+              -ms-animation: slideOutLeft 0.6s ease-in-out;
+              animation: slideOutLeft 0.6s ease-in-out;
+            }
+          }
+
+          &:nth-child(odd){
+             span{
+              left: -140px;
+            }
+          }
+        }
+      }
+    }
+
+    &.demo2{
+      .cr-bgimg{
+        .cr-bgimg-item{
+          span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 140px;
+            z-index: 2;
+            text-indent: -9000px;
+            -webkit-animation: slideOutLeft 0.6s ease-in-out;
+            -moz-animation: slideOutLeft 0.6s ease-in-out;
+            -o-animation: slideOutLeft 0.6s ease-in-out;
+            -ms-animation: slideOutLeft 0.6s ease-in-out;
+            animation: slideOutLeft 0.6s ease-in-out;
+          }
+
+          &:nth-child(even) {
+            span{
+              -webkit-animation: slideOutRight 0.6s ease-in-out;
+              -moz-animation: slideOutRight 0.6s ease-in-out;
+              -o-animation: slideOutRight 0.6s ease-in-out;
+              -ms-animation: slideOutRight 0.6s ease-in-out;
+              animation: slideOutRight 0.6s ease-in-out;
+            }
+          }
+
+          &:nth-child(odd){
+             span{
+              left: -140px;
+            }
+          }
+        }
+      }
+    }
+
+    &.demo3{
+      .cr-bgimg{
+        .cr-bgimg-item{
+          span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            -webkit-transform: scale(1.5);
+            -moz-transform: scale(1.5);
+            -o-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            transform: scale(1.5);
+            opacity: 0;
+            z-index: 2;
+            text-indent: -9000px;
+            -webkit-animation: scaleOut 0.6s ease-in-out;
+            -moz-animation: scaleOut 0.6s ease-in-out;
+            -o-animation: scaleOut 0.6s ease-in-out;
+            -ms-animation: scaleOut 0.6s ease-in-out;
+            animation: scaleOut 0.6s ease-in-out;
+          }
+        }
+      }
+    }
 
     .cr-bgimg{
       position: absolute;
@@ -178,15 +301,7 @@ import { ref } from 'vue'
         background-repeat: no-repeat;
 
         span{
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0px;
-          left: -140px;
-          z-index: 2;
-          text-indent: -9000px;
-
-          &.on0{
+          &.on{
             -webkit-transition: left 0.5s ease-in-out;
             -moz-transition: left 0.5s ease-in-out;
             -o-transition: left 0.5s ease-in-out;
@@ -197,24 +312,8 @@ import { ref } from 'vue'
             -o-animation: none;
             -ms-animation: none;
             animation: none;
-            left: 0px;
+            left: 0px !important;
             z-index: 10;
-          }
-
-          &.on1{
-            -webkit-animation: slideOutLeft 0.6s ease-in-out;
-            -moz-animation: slideOutLeft 0.6s ease-in-out;
-            -o-animation: slideOutLeft 0.6s ease-in-out;
-            -ms-animation: slideOutLeft 0.6s ease-in-out;
-            animation: slideOutLeft 0.6s ease-in-out;
-          }
-
-          &.on2{
-            -webkit-animation: slideOutLeft 0.6s ease-in-out;
-            -moz-animation: slideOutLeft 0.6s ease-in-out;
-            -o-animation: slideOutLeft 0.6s ease-in-out;
-            -ms-animation: slideOutLeft 0.6s ease-in-out;
-            animation: slideOutLeft 0.6s ease-in-out;
           }
 
           &.on3{
@@ -359,62 +458,6 @@ import { ref } from 'vue'
           &::before{
             background: #fff;
             box-shadow: 0px 0px 0px 4px rgba(104,171,194,0.6);
-          }
-        }
-      }
-    }
-
-    &.demo0{
-      .cr-bgimg{
-        .cr-bgimg-item{
-          span{
-            -webkit-animation: slideOut 0.6s ease-in-out;
-            -moz-animation: slideOut 0.6s ease-in-out;
-            -o-animation: slideOut 0.6s ease-in-out;
-            -ms-animation: slideOut 0.6s ease-in-out;
-            animation: slideOut 0.6s ease-in-out;
-          }
-        }
-      }
-    }
-
-    &.demo1{
-      .cr-bgimg{
-        .cr-bgimg-item{
-          span{
-            -webkit-animation: slideOutRight 0.6s ease-in-out;
-            -moz-animation: slideOutRight 0.6s ease-in-out;
-            -o-animation: slideOutRight 0.6s ease-in-out;
-            -ms-animation: slideOutRight 0.6s ease-in-out;
-            animation: slideOutRight 0.6s ease-in-out;
-          }
-        }
-      }
-    }
-
-    &.demo2{
-      .cr-bgimg{
-        .cr-bgimg-item{
-          span{
-            -webkit-animation: slideOutRight 0.6s ease-in-out;
-            -moz-animation: slideOutRight 0.6s ease-in-out;
-            -o-animation: slideOutRight 0.6s ease-in-out;
-            -ms-animation: slideOutRight 0.6s ease-in-out;
-            animation: slideOutRight 0.6s ease-in-out;
-          }
-        }
-      }
-    }
-
-    &.demo3{
-      .cr-bgimg{
-        .cr-bgimg-item{
-          span{
-            -webkit-animation: slideOutLeft 0.6s ease-in-out;
-            -moz-animation: slideOutLeft 0.6s ease-in-out;
-            -o-animation: slideOutLeft 0.6s ease-in-out;
-            -ms-animation: slideOutLeft 0.6s ease-in-out;
-            animation: slideOutLeft 0.6s ease-in-out;
           }
         }
       }
