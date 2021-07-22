@@ -162,6 +162,27 @@ const menuList = {
             icon: 'css3',
           },
           component: 'Collection/CSS'
+        },
+        {
+          path: 'common-layout',
+          name: 'CommonLayout',
+          meta: {
+            title: '常用布局',
+            icon: 'layout',
+          },
+          component: 'Collection/CommonLayout',
+          alwaysShow: true,
+          children: [
+            {
+              path: 'list-card',
+              name: 'ListCard',
+              meta: {
+                title: 'ListCard',
+                icon: 'list-card',
+              },
+              component: 'Collection/CommonLayout/ListCard'
+            }
+          ]
         }
       ]
     },

@@ -197,6 +197,27 @@ export const asyncRoutes = [
           icon: 'css3',
         },
         component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/CSS')
+      },
+      {
+        path: 'common-layout',
+        name: 'CommonLayout',
+        meta: {
+          title: '常用布局',
+          icon: 'layout',
+        },
+        component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/CommonLayout'),
+        alwaysShow: true,
+        children: [
+          {
+            path: 'list-card',
+            name: 'ListCard',
+            meta: {
+              title: 'ListCard',
+              icon: 'list-card',
+            },
+            component: () => import(/* webpackChunkName: "collection" */ '@/views/Collection/CommonLayout/ListCard')
+          }
+        ]
       }
     ]
   },
