@@ -1,5 +1,6 @@
 <template>
   <div class="draw-rect">
+    <el-color-picker v-model="color" show-alpha @change="changeColor"></el-color-picker>
     <canvas class="canvas-box"
             ref="canvas"
             @mousedown="mousedown($event)"
@@ -14,7 +15,8 @@ import { onMounted, ref } from 'vue'
 export default {
   name: 'DrawRect',
   setup () {
-    const elementWidth=800,elementHeight=400;
+    const color = ref('rgba(19, 206, 102, 0.8)')
+    const step = 25
 
     let startx // 起始x坐标
     let starty // 起始y坐标
@@ -44,26 +46,21 @@ export default {
 
     //鼠标点下
     const mousedown = (e) => {
-      console.log(e)
-      console.log(e.pageX, e.pageY)
-      console.log(e.target.getBoundingClientRect().left, e.target.getBoundingClientRect().top)
-      console.log('----------------')
-      console.log(e.target.offsetLeft, e.target.offsetRight)
-      console.log(canvas.value.offsetLeft, canvas.value.offsetLeft)
-      console.log('----------------')
-      console.log(e.target.parentElement.scrollLeft, e.target.parentElement.scrollTop)
-      console.log(canvas.value.parentElement.scrollLeft, canvas.value.parentElement.scrollTop)
       // startx = (e.pageX - e.target.offsetLeft + e.target.parentElement.scrollLeft) / scale
       // starty = (e.pageY - e.target.offsetTop + e.target.parentElement.scrollTop) / scale
       startx = (e.pageX - e.target.getBoundingClientRect().left) / scale
       starty = (e.pageY - e.target.getBoundingClientRect().top) / scale
       currentR = isPointInRetc(startx, starty)
+      console.log(currentR)
       if(currentR){
         leftDistance = startx - currentR.x1
         topDistance = starty - currentR.y1
       }
-      context.strokeRect(x, y, 0, 0)
-      context.strokeStyle = "#0000ff"
+      // context.strokeRect(x, y, 0, 0)
+      context.strokeStyle = color.value
+      context.fillStyle = color.value
+      context.fillRect(x, y, 0, 0) 
+
       flag=1
     }
 
@@ -75,10 +72,13 @@ export default {
       y = (e.pageY - e.target.getBoundingClientRect().top) / scale
       context.save()
       context.setLineDash([5])
+      context.strokeStyle = color.value
+      context.fillStyle = color.value
       canvas.value.style.cursor = "default"
-      context.clearRect(0, 0, elementWidth, elementHeight)
+      context.clearRect(0, 0, canvasWidth, canvasHeight)
       if(flag && oper == 1){
-        context.strokeRect(startx, starty, x-startx, y-starty)
+        // context.strokeRect(startx, starty, x-startx, y-starty)
+        context.fillRect(startx, starty, x-startx, y-starty) 
       }
       context.restore()
       reshow(x, y)
@@ -86,19 +86,21 @@ export default {
 
     //鼠标松开
     const mouseup = () => {
+      console.log(oper,color.value)
       if(oper == 1){
         layers.push(fixPosition({
           x1: startx,
           y1: starty,
           x2: x,
           y2: y,
-          strokeStyle: '#0000ff',
+          strokeStyle: color.value,
+          fillStyle: color.value,
           type: type
         }))
       } else if(oper >= 3){
         fixPosition(currentR)
       }
-      currentR=null
+      // currentR=null
       flag=0
       reshow(x,y)
       oper=0
@@ -142,11 +144,13 @@ export default {
       }
       position.width=position.x2-position.x1
       position.height=position.y2-position.y1
-      if(position.width<50||position.height<50){
-        position.width=60
-        position.height=60
-        position.x2+=position.x1+60
-        position.y2+=position.y1+60
+      if(position.width<step*2){
+        position.width=step*2+10
+        position.x2+=position.x1+step*2+10
+      }      
+      if(position.height<step*2){
+        position.height=step*2+10
+        position.y2+=position.y1+step*2+10
       }
       return position
     }
@@ -158,22 +162,37 @@ export default {
         context.beginPath()
         context.rect(item.x1,item.y1,item.width,item.height)
         context.strokeStyle=item.strokeStyle
-        if(x >= (item.x1 -25 / scale) && x <= (item.x1 +25 / scale) && y <= (item.y2 -25 / scale) && y >= (item.y1 +25 / scale)){
-          resizeLeft(item)
-        }else if(x >= (item.x2 -25 / scale) && x <= (item.x2 +25 / scale) && y <= (item.y2 -25 / scale) && y >= (item.y1 +25 / scale)){
-          resizeWidth(item)
-        }else if(y >= (item.y1 -25 / scale) && y <= (item.y1 +25 / scale) && x <= (item.x2 -25 / scale) && x >= (item.x1 +25 / scale)){
-          resizeTop(item)
-        }else if(y >= (item.y2 -25 / scale) && y <= (item.y2 +25 / scale) && x <= (item.x2 -25 / scale) && x >= (item.x1 +25 / scale)){
-          resizeHeight(item)
-        }else if(x >= (item.x1 -25 / scale) && x <= (item.x1 +25 / scale) && y <= (item.y1 +25 / scale) && y >= (item.y1 -25 / scale)){
-          resizeLT(item)
-        }else if(x >= (item.x2 -25 / scale) && x <= (item.x2 +25 / scale) && y <= (item.y2 +25 / scale) && y >= (item.y2 -25 / scale)){
-          resizeWH(item)
-        }else if(x >= (item.x1 -25 / scale) && x <= (item.x1 +25 / scale) && y <= (item.y2 +25 / scale) && y >= (item.y2 -25 / scale)){
-          resizeLH(item)
-        }else if(x >= (item.x2 -25 / scale) && x <= (item.x2 +25 / scale) && y <= (item.y1 +25 / scale) && y >= (item.y1 -25 / scale)){
-          resizeWT(item)
+        context.fillStyle=item.fillStyle
+        context.fillRect(item.x1,item.y1,item.width,item.height)
+
+        const x1Left = (item.x1 - step) / scale
+        const x1Right = (item.x1 + step) / scale
+
+        const x2Left = (item.x2 - step) / scale
+        const x2Right = (item.x2 + step) / scale
+
+        const y1Top = (item.y1 - step) / scale
+        const y1Bottom = (item.y1 + step) / scale
+
+        const y2Top = (item.y2 - step) / scale
+        const y2Bottom = (item.y2 + step) / scale
+
+        if(x >= x1Left && x <= x1Right && y <= y2Top && y >= y1Bottom){
+          resizeLeft(item) // 左
+        }else if(x >= x2Left && x <= x2Right && y <= y2Top && y >= y1Bottom){
+          resizeWidth(item) // 右
+        }else if(y >= y1Top && y <= y1Bottom && x <= x2Left && x >= x1Right){
+          resizeTop(item) // 上
+        }else if(y >= y2Top && y <= y2Bottom && x <= x2Left && x >= x1Right){
+          resizeHeight(item) // 下
+        }else if(x >= x1Left && x <= x1Right && y <= y1Bottom && y >= y1Top){
+          resizeLT(item) // 左上
+        }else if(x >= x2Left && x <= x2Right && y <= y2Bottom && y >= y2Top){
+          resizeWH(item) // 右下
+        }else if(x >= x1Left && x <= x1Right && y <= y2Bottom && y >= y2Top){
+          resizeLH(item) // 左下
+        }else if(x >= x2Left && x <= x2Right && y <= y1Bottom && y >= y1Top){
+          resizeWT(item) // 右上
         }
         if(context.isPointInPath(x*scale, y*scale)){
           render(item)
@@ -186,6 +205,7 @@ export default {
       }	
     }
 
+    // 左
     const resizeLeft = (rect) => {
       canvas.value.style.cursor="w-resize"
       if(flag&&oper==0){oper=3}
@@ -196,6 +216,7 @@ export default {
       }
     }
 
+    // 上
     const resizeTop = (rect) => {
       canvas.value.style.cursor="s-resize"
       if(flag&&oper==0){oper=4}
@@ -206,6 +227,7 @@ export default {
       }
     }
 
+    // 右
     const resizeWidth = (rect) => {
       canvas.value.style.cursor="w-resize"
       if(flag&&oper==0){oper=5}
@@ -216,6 +238,7 @@ export default {
       }
     }
 
+    // 下
     const resizeHeight = (rect) => {
       canvas.value.style.cursor="s-resize"
       if(flag&&oper==0){oper=6}
@@ -226,6 +249,7 @@ export default {
       }
     }
 
+    // 左上
     const resizeLT = (rect) => {
       canvas.value.style.cursor="se-resize"
       if(flag&&oper==0){oper=7}
@@ -238,6 +262,7 @@ export default {
       }
     }
 
+    // 右下
     const resizeWH = (rect) => {
       canvas.value.style.cursor="se-resize"
       if(flag&&oper==0){oper=8}
@@ -250,6 +275,7 @@ export default {
       }
     }
 
+    // 左下
     const resizeLH = (rect) => {
       canvas.value.style.cursor="ne-resize"
       if(flag&&oper==0){oper=9}
@@ -262,6 +288,7 @@ export default {
       }
     }
 
+    // 右上
     const resizeWT = (rect) => {
       canvas.value.style.cursor="ne-resize"
       if(flag&&oper==0){oper=10}
@@ -274,12 +301,22 @@ export default {
       }
     }
 
+    const changeColor = (value) => {
+      color.value = value
+      if(currentR){
+        currentR.fillStyle = value
+        currentR.strokeStyle = value
+      }
+    }
+
     onMounted(() => {
       context = canvas.value.getContext("2d")
       initCanvas()
     })
 
     return{
+      color,
+      changeColor,
       canvas,
       mousedown,
       mousemove,
