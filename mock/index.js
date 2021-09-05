@@ -4,11 +4,13 @@ import { paramObj } from '../src/utils'
 import router from './basis/router'
 import user from './basis/user'
 import echarts from './charts/echarts'
+import table from './assembly/table'
 
 const mocks = [
   ...router,
   ...user,
-  ...echarts
+  ...echarts,
+  ...table
 ]
 
 // for front mock
