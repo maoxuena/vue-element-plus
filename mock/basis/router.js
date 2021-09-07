@@ -128,6 +128,36 @@ const menuList = {
       ]
     },
     {
+      path: '/svgPlug',
+      redirect: '/svgPlug/svgJs',
+      meta: {
+        title: 'SVG插件',
+        icon: 'svg',
+      },
+      component: 'BasicLayout',
+      alwaysShow: true,
+      children: [
+        {
+          path: 'svgJs',
+          name: 'SvgJs',
+          meta: {
+            title: 'svg.js',
+            icon: 'component',
+          },
+          component: 'SvgPlug/SvgJs'
+        },
+        {
+          path: 'snap',
+          name: 'Snap',
+          meta: {
+            title: 'Snap.svg',
+            icon: 'component',
+          },
+          component: 'SvgPlug/Snap'
+        }
+      ]
+    },
+    {
       path: '/collection',
       redirect: '/collection/svg',
       meta: {

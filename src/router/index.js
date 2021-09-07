@@ -143,6 +143,36 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/svgPlug',
+    redirect: '/svgPlug/svgJs',
+    meta: {
+      title: 'SVG插件',
+      icon: 'svg',
+    },
+    component: BasicLayout,
+    alwaysShow: true,
+    children: [
+      {
+        path: 'svgJs',
+        name: 'SvgJs',
+        meta: {
+          title: 'svg.js',
+          icon: 'component',
+        },
+        component: () => import(/* webpackChunkName: "svg" */ '@/views/SvgPlug/SvgJs')
+      },
+      {
+        path: 'snap',
+        name: 'Snap',
+        meta: {
+          title: 'Snap.svg',
+          icon: 'component',
+        },
+        component: () => import(/* webpackChunkName: "svg" */ '@/views/SvgPlug/Snap')
+      }
+    ]
+  },
+  {
     path: '/questionnaireSurvey',
     redirect: '/questionnaireSurvey/list',
     meta: {
