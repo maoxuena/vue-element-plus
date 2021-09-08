@@ -7,8 +7,8 @@
 <script>
 import { ref, watch, onMounted } from 'vue'
 import VueEcharts from '@/components/VueEcharts'
-  export default {
-    name:'BarStacking',
+export default {
+  name:'BarStacking',
   props: {
     data: Object,
     textColor: {
@@ -117,7 +117,7 @@ import VueEcharts from '@/components/VueEcharts'
       options
     }
   }
-  }
+}
 </script>
 
 <style lang="scss" scoped>
